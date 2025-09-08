@@ -1,0 +1,624 @@
+# Spanish language file for YoApy Social Poster
+# Copyright (C) 2024 YoApy Social Poster
+# This file is distributed under the same license as the YoApy Social Poster package.
+msgid ""
+msgstr ""
+"Project-Id-Version: YoApy Social Poster 1.6.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/yoapy-social-poster\n"
+"POT-Creation-Date: 2024-09-04 12:00+0000\n"
+"PO-Revision-Date: 2024-09-04 12:00+0000\n"
+"Last-Translator: YoApy Team\n"
+"Language-Team: Spanish\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: includes/classes/class-admin.php:63
+msgid "YoApy Social Poster"
+msgstr "YoApy Social Poster"
+
+#: includes/classes/class-planner.php:38
+msgid "YoApy Planner"
+msgstr "YoApy Planificador"
+
+#: includes/classes/class-planner.php:38
+msgid "Settings"
+msgstr "Configuración"
+
+#: includes/classes/class-planner.php:39
+msgid "Logs"
+msgstr "Registros"
+
+#: includes/classes/class-planner.php:69
+msgid "Settings saved."
+msgstr "Configuración guardada."
+
+#: includes/classes/class-planner.php:74
+msgid "Failed"
+msgstr "Falló"
+
+#: includes/classes/class-planner.php:75
+msgid "Connected"
+msgstr "Conectado"
+
+#: admin/views/metabox.php:10
+msgid "Need API Keys?"
+msgstr "¿Necesitas claves API?"
+
+#: admin/views/metabox.php:11
+msgid "Create them for free at"
+msgstr "Créalas gratis en"
+
+#: admin/views/metabox.php:18
+msgid "Enable social posting"
+msgstr "Activar publicación social"
+
+#: admin/views/metabox.php:23
+msgid "Networks"
+msgstr "Redes"
+
+#: admin/views/metabox.php:29
+msgid "Type"
+msgstr "Tipo"
+
+#: admin/views/metabox.php:31
+msgid "Image Post"
+msgstr "Publicación de Imagen"
+
+#: admin/views/metabox.php:32
+msgid "Video/Reels"
+msgstr "Video/Reels"
+
+#: admin/views/metabox.php:33
+msgid "Story"
+msgstr "Historia"
+
+#: admin/views/metabox.php:37
+msgid "Caption/Title"
+msgstr "Título/Descripción"
+
+#: admin/views/metabox.php:41
+msgid "Image URL"
+msgstr "URL de Imagen"
+
+#: admin/views/metabox.php:46
+msgid "Video URL"
+msgstr "URL de Video"
+
+#: admin/views/metabox.php:51
+msgid "Article URL"
+msgstr "URL del Artículo"
+
+#: admin/views/metabox.php:55
+msgid "Schedule"
+msgstr "Programar"
+
+#: admin/views/metabox.php:59
+msgid "Leave empty to publish immediately"
+msgstr "Dejar vacío para publicar inmediatamente"
+
+#: admin/views/planner.php:67
+msgid "YoApy Planner"
+msgstr "YoApy Planificador"
+
+#: admin/views/planner.php:68
+msgid "Schedule independent publications and track their status."
+msgstr "Programa publicaciones independientes y rastrea su estado."
+
+#: admin/views/planner.php:72
+msgid "Settings"
+msgstr "Configuración"
+
+#: admin/views/planner.php:76
+msgid "Create API Keys"
+msgstr "Crear Claves API"
+
+#: admin/views/planner.php:84
+msgid "Pending"
+msgstr "Pendiente"
+
+#: admin/views/planner.php:85
+msgid "Scheduled"
+msgstr "Programado"
+
+#: admin/views/planner.php:86
+msgid "Processing"
+msgstr "Procesando"
+
+#: admin/views/planner.php:87
+msgid "Completed"
+msgstr "Completado"
+
+#: admin/views/planner.php:88
+msgid "Errors"
+msgstr "Errores"
+
+#: admin/views/planner.php:95
+msgid "Don't have API keys?"
+msgstr "¿No tienes claves API?"
+
+#: admin/views/planner.php:95
+msgid "Create them for free at YoApy"
+msgstr "Créalas gratis en YoApy"
+
+#: admin/views/planner.php:99
+msgid "API Keys Pending"
+msgstr "Claves API Pendientes"
+
+#: admin/views/planner.php:105
+msgid "Configure your YoApy API keys in %sSettings%s to send tasks."
+msgstr "Configura tus claves API de YoApy en %sConfiguración%s para enviar tareas."
+
+#: admin/views/planner.php:113
+msgid "New Task"
+msgstr "Nueva Tarea"
+
+#: admin/views/planner.php:120
+msgid "Networks"
+msgstr "Redes"
+
+#: admin/views/planner.php:147
+msgid "Type"
+msgstr "Tipo"
+
+#: admin/views/planner.php:149
+msgid "Image Post (FB/IG)"
+msgstr "Publicación de Imagen (FB/IG)"
+
+#: admin/views/planner.php:150
+msgid "Video/Reels (IG/FB/YouTube/TikTok)"
+msgstr "Video/Reels (IG/FB/YouTube/TikTok)"
+
+#: admin/views/planner.php:151
+msgid "Story (FB/IG)"
+msgstr "Historia (FB/IG)"
+
+#: admin/views/planner.php:152
+msgid "YouTube Live Schedule"
+msgstr "Programación en Vivo de YouTube"
+
+#: admin/views/planner.php:158
+msgid "Caption / Title"
+msgstr "Título / Descripción"
+
+#: admin/views/planner.php:160
+msgid "Write your text... (#hashtags, @mentions)"
+msgstr "Escribe tu texto... (#hashtags, @menciones)"
+
+#: admin/views/planner.php:194
+msgid "Drag image here"
+msgstr "Arrastra imagen aquí"
+
+#: admin/views/planner.php:195
+msgid "or"
+msgstr "o"
+
+#: admin/views/planner.php:195
+msgid "click to choose"
+msgstr "haz clic para elegir"
+
+#: admin/views/planner.php:195
+msgid "also supports paste (Ctrl/⌘+V)"
+msgstr "también soporta pegar (Ctrl/⌘+V)"
+
+#: admin/views/planner.php:213
+msgid "Drag video here"
+msgstr "Arrastra video aquí"
+
+#: admin/views/planner.php:223
+msgid "Article URL (FB optional)"
+msgstr "URL del Artículo (FB opcional)"
+
+#: admin/views/planner.php:229
+msgid "Schedule"
+msgstr "Programar"
+
+#: admin/views/planner.php:231
+msgid "Leave empty to send now."
+msgstr "Dejar vacío para enviar ahora."
+
+#: admin/views/planner.php:236
+msgid "Title (internal)"
+msgstr "Título (interno)"
+
+#: admin/views/planner.php:238
+msgid "Save Task"
+msgstr "Guardar Tarea"
+
+#: admin/views/planner.php:254
+msgid "Preview"
+msgstr "Vista Previa"
+
+#: admin/views/planner.php:259
+msgid "Feed"
+msgstr "Feed"
+
+#: admin/views/planner.php:260
+msgid "Stories"
+msgstr "Historias"
+
+#: admin/views/planner.php:261
+msgid "Reels"
+msgstr "Reels"
+
+#: admin/views/planner.php:262
+msgid "TikTok"
+msgstr "TikTok"
+
+#: admin/views/planner.php:263
+msgid "YouTube"
+msgstr "YouTube"
+
+#: admin/views/planner.php:264
+msgid "Shorts"
+msgstr "Shorts"
+
+#: admin/views/planner.php:525
+msgid "Tasks"
+msgstr "Tareas"
+
+#: admin/views/planner.php:530
+msgid "Search title..."
+msgstr "Buscar título..."
+
+#: admin/views/planner.php:532
+msgid "All statuses"
+msgstr "Todos los estados"
+
+#: admin/views/planner.php:533
+msgid "Pending"
+msgstr "Pendiente"
+
+#: admin/views/planner.php:534
+msgid "Scheduled"
+msgstr "Programado"
+
+#: admin/views/planner.php:535
+msgid "Processing"
+msgstr "Procesando"
+
+#: admin/views/planner.php:536
+msgid "Completed"
+msgstr "Completado"
+
+#: admin/views/planner.php:537
+msgid "Errors"
+msgstr "Errores"
+
+#: admin/views/planner.php:541
+msgid "Refresh"
+msgstr "Actualizar"
+
+#: admin/views/planner.php:550
+msgid "Title"
+msgstr "Título"
+
+#: admin/views/planner.php:551
+msgid "Networks"
+msgstr "Redes"
+
+#: admin/views/planner.php:552
+msgid "Type"
+msgstr "Tipo"
+
+#: admin/views/planner.php:553
+msgid "When"
+msgstr "Cuándo"
+
+#: admin/views/planner.php:554
+msgid "Status"
+msgstr "Estado"
+
+#: admin/views/planner.php:555
+msgid "Actions"
+msgstr "Acciones"
+
+#: admin/views/planner.php:567
+msgid "Post"
+msgstr "Publicar"
+
+#: admin/views/planner.php:568
+msgid "Refresh"
+msgstr "Actualizar"
+
+#: admin/views/planner.php:569
+msgid "Delete"
+msgstr "Eliminar"
+
+#: admin/views/planner.php:580
+msgid "Type:"
+msgstr "Tipo:"
+
+#: admin/views/planner.php:581
+msgid "When:"
+msgstr "Cuándo:"
+
+#: admin/views/planner.php:582
+msgid "Status:"
+msgstr "Estado:"
+
+#: admin/views/planner.php:586
+msgid "Post"
+msgstr "Publicar"
+
+#: admin/views/planner.php:587
+msgid "Refresh"
+msgstr "Actualizar"
+
+#: admin/views/planner.php:588
+msgid "Delete"
+msgstr "Eliminar"
+
+#: admin/views/planner.php:595
+msgid "No tasks yet. Create your first publication above ✨"
+msgstr "Aún no hay tareas. Crea tu primera publicación arriba ✨"
+
+#: admin/views/settings.php:22
+msgid "YoApy Settings"
+msgstr "Configuración de YoApy"
+
+#: admin/views/settings.php:23
+msgid "Connect your keys, set accounts by network and test the integration."
+msgstr "Conecta tus claves, configura cuentas por red y prueba la integración."
+
+#: admin/views/settings.php:29
+msgid "Keys configured"
+msgstr "Claves configuradas"
+
+#: admin/views/settings.php:29
+msgid "Keys pending"
+msgstr "Claves pendientes"
+
+#: admin/views/settings.php:37
+msgid "Create your keys for free at %s."
+msgstr "Crea tus claves gratis en %s."
+
+#: admin/views/settings.php:42
+msgid "Create Keys"
+msgstr "Crear Claves"
+
+#: admin/views/settings.php:50
+msgid "YoApy Credentials"
+msgstr "Credenciales de YoApy"
+
+#: admin/views/settings.php:60
+msgid "Base URL"
+msgstr "URL Base"
+
+#: admin/views/settings.php:64
+msgid "Normally: %s"
+msgstr "Normalmente: %s"
+
+#: admin/views/settings.php:69
+msgid "Key ID"
+msgstr "ID de Clave"
+
+#: admin/views/settings.php:74
+msgid "Copy"
+msgstr "Copiar"
+
+#: admin/views/settings.php:80
+msgid "Secret (hex)"
+msgstr "Secreto (hex)"
+
+#: admin/views/settings.php:85
+msgid "Show"
+msgstr "Mostrar"
+
+#: admin/views/settings.php:88
+msgid "Copy"
+msgstr "Copiar"
+
+#: admin/views/settings.php:91
+msgid "Hexadecimal secret — do not share."
+msgstr "Secreto hexadecimal — no compartir."
+
+#: admin/views/settings.php:96
+msgid "Save"
+msgstr "Guardar"
+
+#: admin/views/settings.php:111
+msgid "Accounts (@) by network"
+msgstr "Cuentas (@) por red"
+
+#: admin/views/settings.php:121
+msgid "Default account (@)"
+msgstr "Cuenta predeterminada (@)"
+
+#: admin/views/settings.php:125
+msgid "Used when the network-specific @ is empty. (The @ symbol will be automatically removed)"
+msgstr "Se usa cuando el @ específico de la red está vacío. (El símbolo @ será eliminado automáticamente)"
+
+#: admin/views/settings.php:139
+msgid "The @ symbol will be automatically removed"
+msgstr "El símbolo @ será eliminado automáticamente"
+
+#: admin/views/settings.php:151
+msgid "The @ symbol will be automatically removed"
+msgstr "El símbolo @ será eliminado automáticamente"
+
+#: admin/views/settings.php:163
+msgid "The @ symbol will be automatically removed"
+msgstr "El símbolo @ será eliminado automáticamente"
+
+#: admin/views/settings.php:175
+msgid "The @ symbol will be automatically removed"
+msgstr "El símbolo @ será eliminado automáticamente"
+
+#: admin/views/settings.php:182
+msgid "Usage preview by network"
+msgstr "Vista previa de uso por red"
+
+#: admin/views/settings.php:193
+msgid "(default)"
+msgstr "(predeterminado)"
+
+#: admin/views/settings.php:201
+msgid "Save"
+msgstr "Guardar"
+
+#: admin/views/settings.php:213
+msgid "Connection test"
+msgstr "Prueba de conexión"
+
+#: admin/views/settings.php:219
+msgid "Test connection"
+msgstr "Probar conexión"
+
+#: admin/views/settings.php:222
+msgid "add keys first"
+msgstr "añadir claves primero"
+
+#: admin/views/settings.php:225
+msgid "The result appears in the notices on this page."
+msgstr "El resultado aparece en los avisos de esta página."
+
+#: admin/views/settings.php:233
+msgid "Quick help"
+msgstr "Ayuda rápida"
+
+#: admin/views/settings.php:236
+msgid "1. Generate the keys on the %s."
+msgstr "1. Genera las claves en el %s."
+
+#: admin/views/settings.php:236
+msgid "YoApy website"
+msgstr "sitio web de YoApy"
+
+#: admin/views/settings.php:237
+msgid "2. Paste the %s and %s above."
+msgstr "2. Pega el %s y %s arriba."
+
+#: admin/views/settings.php:237
+msgid "Key ID"
+msgstr "ID de Clave"
+
+#: admin/views/settings.php:237
+msgid "Secret"
+msgstr "Secreto"
+
+#: admin/views/settings.php:238
+msgid "3. Set your %s and, if desired, network-specific @."
+msgstr "3. Configura tu %s y, si lo deseas, @ específico por red."
+
+#: admin/views/settings.php:238
+msgid "default @"
+msgstr "@ predeterminado"
+
+#: admin/views/settings.php:239
+msgid "4. Click %s and then %s."
+msgstr "4. Haz clic en %s y luego en %s."
+
+#: admin/views/settings.php:239
+msgid "Save"
+msgstr "Guardar"
+
+#: admin/views/settings.php:239
+msgid "Test connection"
+msgstr "Probar conexión"
+
+#: admin/views/settings.php:273
+msgid "Show"
+msgstr "Mostrar"
+
+#: admin/views/settings.php:274
+msgid "Hide"
+msgstr "Ocultar"
+
+#: admin/views/settings.php:306
+msgid "Copied!"
+msgstr "¡Copiado!"
+
+#: admin/views/settings.php:308
+msgid "Copy manually."
+msgstr "Copiar manualmente."
+
+#: admin/views/logs.php:59
+msgid "YoApy Logs"
+msgstr "Registros de YoApy"
+
+#: admin/views/logs.php:60
+msgid "Send and API return events. Dates in your timezone using WordPress format."
+msgstr "Eventos de envío y respuesta de API. Fechas en tu zona horaria usando formato de WordPress."
+
+#: admin/views/logs.php:65
+msgid "Clear all"
+msgstr "Limpiar todo"
+
+#: admin/views/logs.php:66
+msgid "Tip: click %s to open the complete JSON."
+msgstr "Consejo: haz clic en %s para abrir el JSON completo."
+
+#: admin/views/logs.php:66
+msgid "view details"
+msgstr "ver detalles"
+
+#: admin/views/logs.php:80
+msgid "Send"
+msgstr "Enviar"
+
+#: admin/views/logs.php:85
+msgid "scheduled:"
+msgstr "programado:"
+
+#: admin/views/logs.php:96
+msgid "Send return"
+msgstr "Respuesta de envío"
+
+#: admin/views/logs.php:108
+msgid "Task status"
+msgstr "Estado de tarea"
+
+#: admin/views/logs.php:115
+msgid "View on %s"
+msgstr "Ver en %s"
+
+#: admin/views/logs.php:125
+msgid "Job completion"
+msgstr "Finalización de trabajo"
+
+#: admin/views/logs.php:143
+msgid "Delete"
+msgstr "Eliminar"
+
+#: admin/views/logs.php:149
+msgid "view details"
+msgstr "ver detalles"
+
+#: admin/views/logs.php:165
+msgid "When (local)"
+msgstr "Cuándo (local)"
+
+#: admin/views/logs.php:166
+msgid "Action"
+msgstr "Acción"
+
+#: admin/views/logs.php:167
+msgid "Summary"
+msgstr "Resumen"
+
+#: admin/views/logs.php:168
+msgid "Delete"
+msgstr "Eliminar"
+
+#: admin/views/logs.php:178
+msgid "view details"
+msgstr "ver detalles"
+
+#: admin/views/logs.php:187
+msgid "Delete"
+msgstr "Eliminar"
+
+#: admin/views/logs.php:203
+msgid "hide details"
+msgstr "ocultar detalles"
+
+#: admin/views/logs.php:204
+msgid "view details"
+msgstr "ver detalles"
+
+#: yoapy-social-poster.php:190
+msgid "Every 2 minutes (YoApy)"
+msgstr "Cada 2 minutos (YoApy)"

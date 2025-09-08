@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-// Define plugin constants
+// Define plugin constantss
 if ( ! defined( 'YSP_VERSION' ) ) {
     define( 'YSP_VERSION', '1.6.0' );
 }
@@ -148,15 +148,15 @@ final class YoApy_Social_Poster {
         if ( $timestamp ) {
             wp_unschedule_event( $timestamp, 'ysp_tick' );
         }
-        
+
         $timestamp = wp_next_scheduled( 'ysp_check_task_results' );
         if ( $timestamp ) {
             wp_unschedule_event( $timestamp, 'ysp_check_task_results' );
         }
-        
+
         // Schedule cron job every 30 seconds
         wp_schedule_event( time() + 30, 'ysp_30sec', 'ysp_tick' );
-        
+
         // Schedule task result checking every 30 seconds for faster updates
         wp_schedule_event( time() + 30, 'ysp_30sec', 'ysp_check_task_results' );
 
@@ -178,7 +178,7 @@ final class YoApy_Social_Poster {
         if ( $timestamp ) {
             wp_unschedule_event( $timestamp, 'ysp_tick' );
         }
-        
+
         // Clear task result checking cron job
         $timestamp = wp_next_scheduled( 'ysp_check_task_results' );
         if ( $timestamp ) {
