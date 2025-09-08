@@ -1,0 +1,390 @@
+# Portuguese (Brazil) language file for YoApy Social Poster
+# Copyright (C) 2024 YoApy Social Poster
+msgid ""
+msgstr ""
+"Project-Id-Version: YoApy Social Poster 1.6.0\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "YoApy Social Poster"
+msgstr "YoApy Social Poster"
+
+msgid "YoApy Planner"
+msgstr "YoApy Planejador"
+
+msgid "Settings"
+msgstr "Configurações"
+
+msgid "Logs"
+msgstr "Logs"
+
+msgid "Settings saved."
+msgstr "Configurações salvas."
+
+msgid "Failed"
+msgstr "Falhou"
+
+msgid "Connected"
+msgstr "Conectado"
+
+msgid "Choose Media"
+msgstr "Escolher Mídia"
+
+msgid "Title"
+msgstr "Título"
+
+msgid "Networks"
+msgstr "Redes"
+
+msgid "Type"
+msgstr "Tipo"
+
+msgid "When"
+msgstr "Quando"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Actions"
+msgstr "Ações"
+
+msgid "Send"
+msgstr "Enviar"
+
+msgid "Refresh status"
+msgstr "Atualizar status"
+
+msgid "Delete"
+msgstr "Excluir"
+
+msgid "Saving..."
+msgstr "Salvando..."
+
+msgid "Task saved successfully!"
+msgstr "Tarefa salva com sucesso!"
+
+msgid "An error occurred."
+msgstr "Ocorreu um erro."
+
+msgid "Are you sure you want to delete this task?"
+msgstr "Tem certeza que deseja excluir esta tarefa?"
+
+msgid "Action successful!"
+msgstr "Ação bem-sucedida!"
+
+msgid "Action failed."
+msgstr "Ação falhou."
+
+msgid "Post"
+msgstr "Publicar"
+
+msgid "Need API Keys?"
+msgstr "Precisa de Chaves API?"
+
+msgid "Create them for free at"
+msgstr "Crie-as gratuitamente em"
+
+msgid "Enable social posting"
+msgstr "Ativar publicação social"
+
+msgid "Caption/Title"
+msgstr "Legenda/Título"
+
+msgid "Image URL"
+msgstr "URL da Imagem"
+
+msgid "Video URL"
+msgstr "URL do Vídeo"
+
+msgid "Article URL"
+msgstr "URL do Artigo"
+
+msgid "Leave empty to publish immediately"
+msgstr "Deixe vazio para publicar imediatamente"
+
+msgid "Schedule independent publications and track their status."
+msgstr "Agende publicações independentes e acompanhe seu status."
+
+msgid "Create API Keys"
+msgstr "Criar Chaves API"
+
+msgid "Pending"
+msgstr "Pendente"
+
+msgid "Scheduled"
+msgstr "Agendado"
+
+msgid "Processing"
+msgstr "Processando"
+
+msgid "Completed"
+msgstr "Concluído"
+
+msgid "Errors"
+msgstr "Erros"
+
+msgid "Don't have API keys?"
+msgstr "Não tem chaves API?"
+
+msgid "Create them for free at YoApy"
+msgstr "Crie-as gratuitamente no YoApy"
+
+msgid "API Keys Pending"
+msgstr "Chaves API Pendentes"
+
+msgid "Configure your YoApy API keys in %sSettings%s to send tasks."
+msgstr ""
+"Configure suas chaves API do YoApy em %sConfigurações%s para enviar tarefas."
+
+msgid "New Task"
+msgstr "Nova Tarefa"
+
+msgid "Image Post (FB/IG)"
+msgstr "Post de Imagem (FB/IG)"
+
+msgid "Video/Reels (IG/FB/YouTube/TikTok)"
+msgstr "Vídeo/Reels (IG/FB/YouTube/TikTok)"
+
+msgid "Story (FB/IG)"
+msgstr "Story (FB/IG)"
+
+msgid "YouTube Live Schedule"
+msgstr "Agendamento de Live do YouTube"
+
+msgid "Caption / Title"
+msgstr "Legenda / Título"
+
+msgid "Write your text... (#hashtags, @mentions)"
+msgstr "Escreva seu texto... (#hashtags, @menções)"
+
+msgid "https://..."
+msgstr "https://..."
+
+msgid "Title (internal)"
+msgstr "Título (interno)"
+
+msgid "Leave empty to send now."
+msgstr "Deixe vazio para enviar agora."
+
+msgid "Preview"
+msgstr "Visualizar"
+
+msgid "Feed"
+msgstr "Feed"
+
+msgid "Stories"
+msgstr "Stories"
+
+msgid "Reels"
+msgstr "Reels"
+
+msgid "TikTok"
+msgstr "TikTok"
+
+msgid "YouTube"
+msgstr "YouTube"
+
+msgid "Shorts"
+msgstr "Shorts"
+
+msgid "Tasks"
+msgstr "Tarefas"
+
+msgid "Search title..."
+msgstr "Buscar título..."
+
+msgid "All statuses"
+msgstr "Todos os status"
+
+msgid "Refresh"
+msgstr "Atualizar"
+
+msgid "Type:"
+msgstr "Tipo:"
+
+msgid "When:"
+msgstr "Quando:"
+
+msgid "Status:"
+msgstr "Status:"
+
+msgid "No tasks yet. Create your first publication above ✨"
+msgstr "Nenhuma tarefa ainda. Crie sua primeira publicação acima ✨"
+
+msgid "Unknown error"
+msgstr "Erro desconhecido"
+
+msgid "Error"
+msgstr "Erro"
+
+msgid "YoApy Settings"
+msgstr "Configurações do YoApy"
+
+msgid "Connect your keys, set accounts by network and test the integration."
+msgstr "Conecte suas chaves, defina contas por rede e teste a integração."
+
+msgid "Keys configured"
+msgstr "Chaves configuradas"
+
+msgid "Keys pending"
+msgstr "Chaves pendentes"
+
+msgid "Create your keys for free at %s."
+msgstr "Crie suas chaves gratuitamente em %s."
+
+msgid "Create Keys"
+msgstr "Criar Chaves"
+
+msgid "YoApy Credentials"
+msgstr "Credenciais do YoApy"
+
+msgid "Base URL"
+msgstr "URL Base"
+
+msgid "Normally: %s"
+msgstr "Normalmente: %s"
+
+msgid "Key ID"
+msgstr "ID da Chave"
+
+msgid "Copy"
+msgstr "Copiar"
+
+msgid "Secret (hex)"
+msgstr "Segredo (hex)"
+
+msgid "Show"
+msgstr "Mostrar"
+
+msgid "Hexadecimal secret — do not share."
+msgstr "Segredo hexadecimal — não compartilhe."
+
+msgid "Save"
+msgstr "Salvar"
+
+msgid "Accounts (@) by network"
+msgstr "Contas (@) por rede"
+
+msgid "Default account (@)"
+msgstr "Conta padrão (@)"
+
+msgid ""
+"Used when the network-specific @ is empty. (The @ symbol will be "
+"automatically removed)"
+msgstr ""
+"Usado quando o @ específico da rede está vazio. (O símbolo @ será removido "
+"automaticamente)"
+
+msgid "@yourusername"
+msgstr "@seudusuário"
+
+msgid "@yourpage"
+msgstr "@suapágina"
+
+msgid "@yourinsta"
+msgstr "@seuinsta"
+
+msgid "@yourchannel"
+msgstr "@seucanal"
+
+msgid "@yourtiktok"
+msgstr "@seutiktok"
+
+msgid "The @ symbol will be automatically removed"
+msgstr "O símbolo @ será removido automaticamente"
+
+msgid "Usage preview by network"
+msgstr "Visualização de uso por rede"
+
+msgid "(default)"
+msgstr "(padrão)"
+
+msgid "Connection test"
+msgstr "Teste de conexão"
+
+msgid "Test connection"
+msgstr "Testar conexão"
+
+msgid "add keys first"
+msgstr "adicione as chaves primeiro"
+
+msgid "The result appears in the notices on this page."
+msgstr "O resultado aparece nos avisos desta página."
+
+msgid "Quick help"
+msgstr "Ajuda rápida"
+
+msgid "1. Generate the keys on the %s."
+msgstr "1. Gere as chaves no %s."
+
+msgid "YoApy website"
+msgstr "site do YoApy"
+
+msgid "2. Paste the %s and %s above."
+msgstr "2. Cole o %s e o %s acima."
+
+msgid "Secret"
+msgstr "Segredo"
+
+msgid "3. Set your %s and, if desired, network-specific @."
+msgstr "3. Defina seu %s e, se desejar, @ específico por rede."
+
+msgid "default @"
+msgstr "@ padrão"
+
+msgid "4. Click %s and then %s."
+msgstr "4. Clique em %s e depois em %s."
+
+msgid "Hide"
+msgstr "Ocultar"
+
+msgid "Copied!"
+msgstr "Copiado!"
+
+msgid "Copy manually."
+msgstr "Copiar manualmente."
+
+msgid "YoApy Logs"
+msgstr "Logs do YoApy"
+
+msgid ""
+"Send and API return events. Dates in your timezone using WordPress format."
+msgstr ""
+"Envie e retorne eventos da API. Datas no seu fuso horário usando o formato "
+"do WordPress."
+
+msgid "Share"
+msgstr "Compartilhar"
+
+msgid "Follow"
+msgstr "Seguir"
+
+msgid "Original audio"
+msgstr "Áudio original"
+
+msgid "Dislike"
+msgstr "Não gostei"
+
+msgid "Your Channel"
+msgstr "Seu Canal"
+
+msgid "original sound - yourusername"
+msgstr "som original - seunome"
+
+msgid "Liked by"
+msgstr "Curtido por"
+
+msgid "friend_1"
+msgstr "amigo_1"
+
+msgid "and"
+msgstr "e"
+
+msgid "1.2K others"
+msgstr "outras 1.234 pessoas"
+
+msgid "2 MINUTES AGO"
+msgstr "HÁ 2 MINUTOS"

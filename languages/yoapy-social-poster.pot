@@ -1,0 +1,629 @@
+# Copyright (C) 2024 YoApy Social Poster
+# This file is distributed under the same license as the YoApy Social Poster package.
+msgid ""
+msgstr ""
+"Project-Id-Version: YoApy Social Poster 1.6.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/yoapy-social-"
+"poster\n"
+"POT-Creation-Date: 2024-09-04 12:00+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: includes/classes/class-admin.php:63
+msgid "YoApy Social Poster"
+msgstr ""
+
+#: includes/classes/class-planner.php:38 admin/views/planner.php:67
+msgid "YoApy Planner"
+msgstr ""
+
+#: includes/classes/class-planner.php:38 admin/views/planner.php:72
+msgid "Settings"
+msgstr ""
+
+#: includes/classes/class-planner.php:39
+msgid "Logs"
+msgstr ""
+
+#: includes/classes/class-planner.php:69
+msgid "Settings saved."
+msgstr ""
+
+#: includes/classes/class-planner.php:74
+msgid "Failed"
+msgstr ""
+
+#: includes/classes/class-planner.php:75
+msgid "Connected"
+msgstr ""
+
+#: includes/classes/class-admin.php:120
+msgid "Choose Media"
+msgstr ""
+
+#: includes/classes/class-admin.php:122 admin/views/planner.php:279
+msgid "Title"
+msgstr ""
+
+#: includes/classes/class-admin.php:123 admin/views/metabox.php:23
+#: admin/views/planner.php:120 admin/views/planner.php:280
+msgid "Networks"
+msgstr ""
+
+#: includes/classes/class-admin.php:124 admin/views/metabox.php:29
+#: admin/views/planner.php:147 admin/views/planner.php:281
+msgid "Type"
+msgstr ""
+
+#: includes/classes/class-admin.php:125 admin/views/planner.php:282
+msgid "When"
+msgstr ""
+
+#: includes/classes/class-admin.php:126 admin/views/planner.php:283
+msgid "Status"
+msgstr ""
+
+#: includes/classes/class-admin.php:127 admin/views/planner.php:284
+msgid "Actions"
+msgstr ""
+
+#: includes/classes/class-admin.php:128 admin/views/logs.php:80
+msgid "Send"
+msgstr ""
+
+#: includes/classes/class-admin.php:129
+msgid "Refresh status"
+msgstr ""
+
+#: includes/classes/class-admin.php:130 admin/views/planner.php:298
+#: admin/views/planner.php:317 admin/views/logs.php:143
+#: admin/views/logs.php:168 admin/views/logs.php:187
+msgid "Delete"
+msgstr ""
+
+#: includes/classes/class-planner.php:63
+msgid "Saving..."
+msgstr ""
+
+#: includes/classes/class-planner.php:64
+msgid "Task saved successfully!"
+msgstr ""
+
+#: includes/classes/class-planner.php:65
+msgid "An error occurred."
+msgstr ""
+
+#: includes/classes/class-planner.php:66
+msgid "Are you sure you want to delete this task?"
+msgstr ""
+
+#: includes/classes/class-planner.php:67
+msgid "Action successful!"
+msgstr ""
+
+#: includes/classes/class-planner.php:68
+msgid "Action failed."
+msgstr ""
+
+#: includes/classes/class-planner.php:70 admin/views/planner.php:296
+#: admin/views/planner.php:315
+msgid "Post"
+msgstr ""
+
+#: admin/views/metabox.php:10
+msgid "Need API Keys?"
+msgstr ""
+
+#: admin/views/metabox.php:11
+msgid "Create them for free at"
+msgstr ""
+
+#: admin/views/metabox.php:18
+msgid "Enable social posting"
+msgstr ""
+
+#: admin/views/metabox.php:31
+msgid "Image Post"
+msgstr ""
+
+#: admin/views/metabox.php:32
+msgid "Video/Reels"
+msgstr ""
+
+#: admin/views/metabox.php:33
+msgid "Story"
+msgstr ""
+
+#: admin/views/metabox.php:37
+msgid "Caption/Title"
+msgstr ""
+
+#: admin/views/metabox.php:41
+msgid "Image URL"
+msgstr ""
+
+#: admin/views/metabox.php:46
+msgid "Video URL"
+msgstr ""
+
+#: admin/views/metabox.php:51
+msgid "Article URL"
+msgstr ""
+
+#: admin/views/metabox.php:55 admin/views/planner.php:215
+msgid "Schedule"
+msgstr ""
+
+#: admin/views/metabox.php:59
+msgid "Leave empty to publish immediately"
+msgstr ""
+
+#: admin/views/planner.php:68
+msgid "Schedule independent publications and track their status."
+msgstr ""
+
+#: admin/views/planner.php:76
+msgid "Create API Keys"
+msgstr ""
+
+#: admin/views/planner.php:84 admin/views/planner.php:262
+msgid "Pending"
+msgstr ""
+
+#: admin/views/planner.php:85 admin/views/planner.php:263
+msgid "Scheduled"
+msgstr ""
+
+#: admin/views/planner.php:86 admin/views/planner.php:264
+msgid "Processing"
+msgstr ""
+
+#: admin/views/planner.php:87 admin/views/planner.php:265
+msgid "Completed"
+msgstr ""
+
+#: admin/views/planner.php:88 admin/views/planner.php:266
+msgid "Errors"
+msgstr ""
+
+#: admin/views/planner.php:95
+msgid "Don't have API keys?"
+msgstr ""
+
+#: admin/views/planner.php:95
+msgid "Create them for free at YoApy"
+msgstr ""
+
+#: admin/views/planner.php:99
+msgid "API Keys Pending"
+msgstr ""
+
+#: admin/views/planner.php:105
+msgid "Configure your YoApy API keys in %sSettings%s to send tasks."
+msgstr ""
+
+#: admin/views/planner.php:113
+msgid "New Task"
+msgstr ""
+
+#: admin/views/planner.php:149
+msgid "Image Post (FB/IG)"
+msgstr ""
+
+#: admin/views/planner.php:150
+msgid "Video/Reels (IG/FB/YouTube/TikTok)"
+msgstr ""
+
+#: admin/views/planner.php:151
+msgid "Story (FB/IG)"
+msgstr ""
+
+#: admin/views/planner.php:152
+msgid "YouTube Live Schedule"
+msgstr ""
+
+#: admin/views/planner.php:158
+msgid "Caption / Title"
+msgstr ""
+
+#: admin/views/planner.php:160
+msgid "Write your text... (#hashtags, @mentions)"
+msgstr ""
+
+#: admin/views/planner.php:172 admin/views/planner.php:186
+#: admin/views/planner.php:198
+msgid "https://..."
+msgstr ""
+
+#: admin/views/planner.php:207
+msgid "Title (internal)"
+msgstr ""
+
+#: admin/views/planner.php:217
+msgid "Leave empty to send now."
+msgstr ""
+
+#: admin/views/planner.php:233
+msgid "Preview"
+msgstr ""
+
+#: admin/views/planner.php:238
+msgid "Feed"
+msgstr ""
+
+#: admin/views/planner.php:239
+msgid "Stories"
+msgstr ""
+
+#: admin/views/planner.php:240
+msgid "Reels"
+msgstr ""
+
+#: admin/views/planner.php:241
+msgid "TikTok"
+msgstr ""
+
+#: admin/views/planner.php:242
+msgid "YouTube"
+msgstr ""
+
+#: admin/views/planner.php:243
+msgid "Shorts"
+msgstr ""
+
+#: admin/views/planner.php:254
+msgid "Tasks"
+msgstr ""
+
+#: admin/views/planner.php:259
+msgid "Search title..."
+msgstr ""
+
+#: admin/views/planner.php:261
+msgid "All statuses"
+msgstr ""
+
+#: admin/views/planner.php:270 admin/views/planner.php:297
+#: admin/views/planner.php:316
+msgid "Refresh"
+msgstr ""
+
+#: admin/views/planner.php:309
+msgid "Type:"
+msgstr ""
+
+#: admin/views/planner.php:310
+msgid "When:"
+msgstr ""
+
+#: admin/views/planner.php:311
+msgid "Status:"
+msgstr ""
+
+#: admin/views/planner.php:324
+msgid "No tasks yet. Create your first publication above ✨"
+msgstr ""
+
+#: admin/views/planner.php:224
+msgid "Unknown error"
+msgstr ""
+
+#: admin/views/planner.php:224
+msgid "Error"
+msgstr ""
+
+#: admin/views/settings.php:22
+msgid "YoApy Settings"
+msgstr ""
+
+#: admin/views/settings.php:23
+msgid "Connect your keys, set accounts by network and test the integration."
+msgstr ""
+
+#: admin/views/settings.php:29
+msgid "Keys configured"
+msgstr ""
+
+#: admin/views/settings.php:29
+msgid "Keys pending"
+msgstr ""
+
+#: admin/views/settings.php:37
+msgid "Create your keys for free at %s."
+msgstr ""
+
+#: admin/views/settings.php:42
+msgid "Create Keys"
+msgstr ""
+
+#: admin/views/settings.php:50
+msgid "YoApy Credentials"
+msgstr ""
+
+#: admin/views/settings.php:60
+msgid "Base URL"
+msgstr ""
+
+#: admin/views/settings.php:64
+msgid "Normally: %s"
+msgstr ""
+
+#: admin/views/settings.php:69 admin/views/settings.php:285
+msgid "Key ID"
+msgstr ""
+
+#: admin/views/settings.php:74 admin/views/settings.php:88
+msgid "Copy"
+msgstr ""
+
+#: admin/views/settings.php:80
+msgid "Secret (hex)"
+msgstr ""
+
+#: admin/views/settings.php:85 admin/views/settings.php:321
+msgid "Show"
+msgstr ""
+
+#: admin/views/settings.php:91
+msgid "Hexadecimal secret — do not share."
+msgstr ""
+
+#: admin/views/settings.php:96 admin/views/settings.php:249
+#: admin/views/settings.php:287
+msgid "Save"
+msgstr ""
+
+#: admin/views/settings.php:111
+msgid "Accounts (@) by network"
+msgstr ""
+
+#: admin/views/settings.php:121
+msgid "Default account (@)"
+msgstr ""
+
+#: admin/views/settings.php:125
+msgid ""
+"Used when the network-specific @ is empty. (The @ symbol will be "
+"automatically removed)"
+msgstr ""
+
+#: admin/views/settings.php:133
+msgid "@yourusername"
+msgstr ""
+
+#: admin/views/settings.php:145
+msgid "@yourpage"
+msgstr ""
+
+#: admin/views/settings.php:157
+msgid "@yourinsta"
+msgstr ""
+
+#: admin/views/settings.php:169
+msgid "@yourchannel"
+msgstr ""
+
+#: admin/views/settings.php:181
+msgid "@yourtiktok"
+msgstr ""
+
+#: admin/views/settings.php:187 admin/views/settings.php:199
+#: admin/views/settings.php:211 admin/views/settings.php:223
+msgid "The @ symbol will be automatically removed"
+msgstr ""
+
+#: admin/views/settings.php:230
+msgid "Usage preview by network"
+msgstr ""
+
+#: admin/views/settings.php:241
+msgid "(default)"
+msgstr ""
+
+#: admin/views/settings.php:261
+msgid "Connection test"
+msgstr ""
+
+#: admin/views/settings.php:267 admin/views/settings.php:287
+msgid "Test connection"
+msgstr ""
+
+#: admin/views/settings.php:270
+msgid "add keys first"
+msgstr ""
+
+#: admin/views/settings.php:273
+msgid "The result appears in the notices on this page."
+msgstr ""
+
+#: admin/views/settings.php:281
+msgid "Quick help"
+msgstr ""
+
+#: admin/views/settings.php:284
+msgid "1. Generate the keys on the %s."
+msgstr ""
+
+#: admin/views/settings.php:284
+msgid "YoApy website"
+msgstr ""
+
+#: admin/views/settings.php:285
+msgid "2. Paste the %s and %s above."
+msgstr ""
+
+#: admin/views/settings.php:285
+msgid "Secret"
+msgstr ""
+
+#: admin/views/settings.php:286
+msgid "3. Set your %s and, if desired, network-specific @."
+msgstr ""
+
+#: admin/views/settings.php:286
+msgid "default @"
+msgstr ""
+
+#: admin/views/settings.php:287
+msgid "4. Click %s and then %s."
+msgstr ""
+
+#: admin/views/settings.php:322
+msgid "Hide"
+msgstr ""
+
+#: admin/views/settings.php:354
+msgid "Copied!"
+msgstr ""
+
+#: admin/views/settings.php:356
+msgid "Copy manually."
+msgstr ""
+
+#: admin/views/logs.php:59
+msgid "YoApy Logs"
+msgstr ""
+
+#: admin/views/logs.php:60
+msgid ""
+"Send and API return events. Dates in your timezone using WordPress format."
+msgstr ""
+
+#: admin/views/logs.php:65
+msgid "Clear all"
+msgstr ""
+
+#: admin/views/logs.php:66
+msgid "Tip: click %s to open the complete JSON."
+msgstr ""
+
+#: admin/views/logs.php:66 admin/views/logs.php:149 admin/views/logs.php:178
+#: admin/views/logs.php:204
+msgid "view details"
+msgstr ""
+
+#: admin/views/logs.php:85
+msgid "scheduled:"
+msgstr ""
+
+#: admin/views/logs.php:96
+msgid "Send return"
+msgstr ""
+
+#: admin/views/logs.php:108
+msgid "Task status"
+msgstr ""
+
+#: admin/views/logs.php:115
+msgid "View on %s"
+msgstr ""
+
+#: admin/views/logs.php:125
+msgid "Job completion"
+msgstr ""
+
+#: admin/views/logs.php:165
+msgid "When (local)"
+msgstr ""
+
+#: admin/views/logs.php:166
+msgid "Action"
+msgstr ""
+
+#: admin/views/logs.php:167
+msgid "Summary"
+msgstr ""
+
+#: admin/views/logs.php:203
+msgid "hide details"
+msgstr ""
+
+#: yoapy-social-poster.php:190
+msgid "Every 2 minutes (YoApy)"
+msgstr ""
+
+#: admin/views/preview-youtube.php:22 admin/views/preview-shorts.php:33
+msgid "Your Channel"
+msgstr ""
+
+#: admin/views/preview-youtube.php:23
+msgid "1.2K subscribers"
+msgstr ""
+
+#: admin/views/preview-youtube.php:28
+msgid "SUBSCRIBE"
+msgstr ""
+
+#: admin/views/preview-youtube.php:18
+msgid "Your video title here..."
+msgstr ""
+
+#: admin/views/preview-facebook.php:11
+msgid "Your Page"
+msgstr ""
+
+#: admin/views/preview-facebook.php:12
+msgid "2 min • 🌎"
+msgstr ""
+
+#: admin/views/preview-facebook.php:26
+msgid "👍❤️ 1.2K"
+msgstr ""
+
+#: admin/views/preview-facebook.php:27
+msgid "15 comments · 23 shares"
+msgstr ""
+
+#: admin/views/preview-facebook.php:30
+msgid "Like"
+msgstr ""
+
+#: admin/views/preview-facebook.php:31
+msgid "Comment"
+msgstr ""
+
+#: admin/views/preview-facebook.php:32 admin/views/preview-reels.php:28
+#: admin/views/preview-shorts.php:26 admin/views/preview-tiktok.php:41
+msgid "Share"
+msgstr ""
+
+#: admin/views/preview-instagram.php:34
+msgid "Liked by"
+msgstr ""
+
+#: admin/views/preview-instagram.php:34
+msgid "friend_1"
+msgstr ""
+
+#: admin/views/preview-instagram.php:34
+msgid "and"
+msgstr ""
+
+#: admin/views/preview-instagram.php:34
+msgid "1.2K others"
+msgstr ""
+
+#: admin/views/preview-instagram.php:39
+msgid "2 MINUTES AGO"
+msgstr ""
+
+#: admin/views/preview-reels.php:36
+msgid "Follow"
+msgstr ""
+
+#: admin/views/preview-reels.php:41
+msgid "Original audio"
+msgstr ""
+
+#: admin/views/preview-shorts.php:24
+msgid "Dislike"
+msgstr ""
+
+#: admin/views/preview-tiktok.php:57
+msgid "original sound - yourusername"
+msgstr ""

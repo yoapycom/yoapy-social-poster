@@ -1,0 +1,620 @@
+# Chinese (Simplified) language file for YoApy Social Poster
+# Copyright (C) 2024 YoApy Social Poster
+# This file is distributed under the same license as the YoApy Social Poster package.
+msgid ""
+msgstr ""
+"Project-Id-Version: YoApy Social Poster 1.6.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/yoapy-social-poster\n"
+"POT-Creation-Date: 2024-09-04 12:00+0000\n"
+"PO-Revision-Date: 2024-09-04 12:00+0000\n"
+"Last-Translator: YoApy Team\n"
+"Language-Team: Chinese (Simplified)\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: includes/classes/class-admin.php:63
+msgid "YoApy Social Poster"
+msgstr "YoApy 社交发布器"
+
+#: includes/classes/class-planner.php:38
+msgid "YoApy Planner"
+msgstr "YoApy 计划器"
+
+#: includes/classes/class-planner.php:38
+msgid "Settings"
+msgstr "设置"
+
+#: includes/classes/class-planner.php:39
+msgid "Logs"
+msgstr "日志"
+
+#: includes/classes/class-planner.php:69
+msgid "Settings saved."
+msgstr "设置已保存。"
+
+#: includes/classes/class-planner.php:74
+msgid "Failed"
+msgstr "失败"
+
+#: includes/classes/class-planner.php:75
+msgid "Connected"
+msgstr "已连接"
+
+#: admin/views/metabox.php:10
+msgid "Need API Keys?"
+msgstr "需要API密钥？"
+
+#: admin/views/metabox.php:11
+msgid "Create them for free at"
+msgstr "免费创建于"
+
+#: admin/views/metabox.php:18
+msgid "Enable social posting"
+msgstr "启用社交发布"
+
+#: admin/views/metabox.php:23
+msgid "Networks"
+msgstr "网络"
+
+#: admin/views/metabox.php:29
+msgid "Type"
+msgstr "类型"
+
+#: admin/views/metabox.php:31
+msgid "Image Post"
+msgstr "图片帖子"
+
+#: admin/views/metabox.php:32
+msgid "Video/Reels"
+msgstr "视频/短视频"
+
+#: admin/views/metabox.php:33
+msgid "Story"
+msgstr "动态"
+
+#: admin/views/metabox.php:37
+msgid "Caption/Title"
+msgstr "标题/说明"
+
+#: admin/views/metabox.php:41
+msgid "Image URL"
+msgstr "图片链接"
+
+#: admin/views/metabox.php:46
+msgid "Video URL"
+msgstr "视频链接"
+
+#: admin/views/metabox.php:51
+msgid "Article URL"
+msgstr "文章链接"
+
+#: admin/views/metabox.php:55
+msgid "Schedule"
+msgstr "计划"
+
+#: admin/views/metabox.php:59
+msgid "Leave empty to publish immediately"
+msgstr "留空立即发布"
+
+#: admin/views/planner.php:67
+msgid "YoApy Planner"
+msgstr "YoApy 计划器"
+
+#: admin/views/planner.php:68
+msgid "Schedule independent publications and track their status."
+msgstr "计划独立发布并跟踪其状态。"
+
+#: admin/views/planner.php:72
+msgid "Settings"
+msgstr "设置"
+
+#: admin/views/planner.php:76
+msgid "Create API Keys"
+msgstr "创建API密钥"
+
+#: admin/views/planner.php:84
+msgid "Pending"
+msgstr "待处理"
+
+#: admin/views/planner.php:85
+msgid "Scheduled"
+msgstr "已计划"
+
+#: admin/views/planner.php:86
+msgid "Processing"
+msgstr "处理中"
+
+#: admin/views/planner.php:87
+msgid "Completed"
+msgstr "已完成"
+
+#: admin/views/planner.php:88
+msgid "Errors"
+msgstr "错误"
+
+#: admin/views/planner.php:95
+msgid "Don't have API keys?"
+msgstr "没有API密钥？"
+
+#: admin/views/planner.php:95
+msgid "Create them for free at YoApy"
+msgstr "在YoApy免费创建"
+
+#: admin/views/planner.php:99
+msgid "API Keys Pending"
+msgstr "API密钥待配置"
+
+#: admin/views/planner.php:105
+msgid "Configure your YoApy API keys in %sSettings%s to send tasks."
+msgstr "在%s设置%s中配置您的YoApy API密钥以发送任务。"
+
+#: admin/views/planner.php:113
+msgid "New Task"
+msgstr "新任务"
+
+#: admin/views/planner.php:120
+msgid "Networks"
+msgstr "网络"
+
+#: admin/views/planner.php:147
+msgid "Type"
+msgstr "类型"
+
+#: admin/views/planner.php:149
+msgid "Image Post (FB/IG)"
+msgstr "图片帖子 (FB/IG)"
+
+#: admin/views/planner.php:150
+msgid "Video/Reels (IG/FB/YouTube/TikTok)"
+msgstr "视频/短视频 (IG/FB/YouTube/TikTok)"
+
+#: admin/views/planner.php:151
+msgid "Story (FB/IG)"
+msgstr "动态 (FB/IG)"
+
+#: admin/views/planner.php:152
+msgid "YouTube Live Schedule"
+msgstr "YouTube直播计划"
+
+#: admin/views/planner.php:158
+msgid "Caption / Title"
+msgstr "标题 / 说明"
+
+#: admin/views/planner.php:160
+msgid "Write your text... (#hashtags, @mentions)"
+msgstr "写下您的文字... (#标签, @提及)"
+
+#: admin/views/planner.php:194
+msgid "Drag image here"
+msgstr "拖拽图片到这里"
+
+#: admin/views/planner.php:195
+msgid "or"
+msgstr "或"
+
+#: admin/views/planner.php:195
+msgid "click to choose"
+msgstr "点击选择"
+
+#: admin/views/planner.php:195
+msgid "also supports paste (Ctrl/⌘+V)"
+msgstr "也支持粘贴 (Ctrl/⌘+V)"
+
+#: admin/views/planner.php:213
+msgid "Drag video here"
+msgstr "拖拽视频到这里"
+
+#: admin/views/planner.php:223
+msgid "Article URL (FB optional)"
+msgstr "文章链接 (FB可选)"
+
+#: admin/views/planner.php:229
+msgid "Schedule"
+msgstr "计划"
+
+#: admin/views/planner.php:231
+msgid "Leave empty to send now."
+msgstr "留空立即发送。"
+
+#: admin/views/planner.php:236
+msgid "Title (internal)"
+msgstr "标题（内部）"
+
+#: admin/views/planner.php:238
+msgid "Save Task"
+msgstr "保存任务"
+
+#: admin/views/planner.php:254
+msgid "Preview"
+msgstr "预览"
+
+#: admin/views/planner.php:259
+msgid "Feed"
+msgstr "信息流"
+
+#: admin/views/planner.php:260
+msgid "Stories"
+msgstr "动态"
+
+#: admin/views/planner.php:261
+msgid "Reels"
+msgstr "短视频"
+
+#: admin/views/planner.php:262
+msgid "TikTok"
+msgstr "TikTok"
+
+#: admin/views/planner.php:263
+msgid "YouTube"
+msgstr "YouTube"
+
+#: admin/views/planner.php:264
+msgid "Shorts"
+msgstr "Shorts"
+
+#: admin/views/planner.php:525
+msgid "Tasks"
+msgstr "任务"
+
+#: admin/views/planner.php:530
+msgid "Search title..."
+msgstr "搜索标题..."
+
+#: admin/views/planner.php:532
+msgid "All statuses"
+msgstr "所有状态"
+
+#: admin/views/planner.php:533
+msgid "Pending"
+msgstr "待处理"
+
+#: admin/views/planner.php:534
+msgid "Scheduled"
+msgstr "已计划"
+
+#: admin/views/planner.php:535
+msgid "Processing"
+msgstr "处理中"
+
+#: admin/views/planner.php:536
+msgid "Completed"
+msgstr "已完成"
+
+#: admin/views/planner.php:537
+msgid "Errors"
+msgstr "错误"
+
+#: admin/views/planner.php:541
+msgid "Refresh"
+msgstr "刷新"
+
+#: admin/views/planner.php:550
+msgid "Title"
+msgstr "标题"
+
+#: admin/views/planner.php:551
+msgid "Networks"
+msgstr "网络"
+
+#: admin/views/planner.php:552
+msgid "Type"
+msgstr "类型"
+
+#: admin/views/planner.php:553
+msgid "When"
+msgstr "时间"
+
+#: admin/views/planner.php:554
+msgid "Status"
+msgstr "状态"
+
+#: admin/views/planner.php:555
+msgid "Actions"
+msgstr "操作"
+
+#: admin/views/planner.php:567
+msgid "Post"
+msgstr "发布"
+
+#: admin/views/planner.php:568
+msgid "Refresh"
+msgstr "刷新"
+
+#: admin/views/planner.php:569
+msgid "Delete"
+msgstr "删除"
+
+#: admin/views/planner.php:580
+msgid "Type:"
+msgstr "类型："
+
+#: admin/views/planner.php:581
+msgid "When:"
+msgstr "时间："
+
+#: admin/views/planner.php:582
+msgid "Status:"
+msgstr "状态："
+
+#: admin/views/planner.php:586
+msgid "Post"
+msgstr "发布"
+
+#: admin/views/planner.php:587
+msgid "Refresh"
+msgstr "刷新"
+
+#: admin/views/planner.php:588
+msgid "Delete"
+msgstr "删除"
+
+#: admin/views/planner.php:595
+msgid "No tasks yet. Create your first publication above ✨"
+msgstr "还没有任务。在上方创建您的第一个发布 ✨"
+
+#: admin/views/settings.php:22
+msgid "YoApy Settings"
+msgstr "YoApy 设置"
+
+#: admin/views/settings.php:23
+msgid "Connect your keys, set accounts by network and test the integration."
+msgstr "连接您的密钥，按网络设置账户并测试集成。"
+
+#: admin/views/settings.php:29
+msgid "Keys configured"
+msgstr "密钥已配置"
+
+#: admin/views/settings.php:29
+msgid "Keys pending"
+msgstr "密钥待配置"
+
+#: admin/views/settings.php:37
+msgid "Create your keys for free at %s."
+msgstr "在%s免费创建您的密钥。"
+
+#: admin/views/settings.php:42
+msgid "Create Keys"
+msgstr "创建密钥"
+
+#: admin/views/settings.php:50
+msgid "YoApy Credentials"
+msgstr "YoApy 凭证"
+
+#: admin/views/settings.php:60
+msgid "Base URL"
+msgstr "基础URL"
+
+#: admin/views/settings.php:64
+msgid "Normally: %s"
+msgstr "通常：%s"
+
+#: admin/views/settings.php:69
+msgid "Key ID"
+msgstr "密钥ID"
+
+#: admin/views/settings.php:74
+msgid "Copy"
+msgstr "复制"
+
+#: admin/views/settings.php:80
+msgid "Secret (hex)"
+msgstr "密钥 (十六进制)"
+
+#: admin/views/settings.php:85
+msgid "Show"
+msgstr "显示"
+
+#: admin/views/settings.php:88
+msgid "Copy"
+msgstr "复制"
+
+#: admin/views/settings.php:91
+msgid "Hexadecimal secret — do not share."
+msgstr "十六进制密钥 — 请勿分享。"
+
+#: admin/views/settings.php:96
+msgid "Save"
+msgstr "保存"
+
+#: admin/views/settings.php:111
+msgid "Accounts (@) by network"
+msgstr "按网络账户 (@)"
+
+#: admin/views/settings.php:121
+msgid "Default account (@)"
+msgstr "默认账户 (@)"
+
+#: admin/views/settings.php:125
+msgid "Used when the network-specific @ is empty. (The @ symbol will be automatically removed)"
+msgstr "当网络特定@为空时使用。（@符号将自动移除）"
+
+#: admin/views/settings.php:139
+msgid "The @ symbol will be automatically removed"
+msgstr "@符号将自动移除"
+
+#: admin/views/settings.php:151
+msgid "The @ symbol will be automatically removed"
+msgstr "@符号将自动移除"
+
+#: admin/views/settings.php:163
+msgid "The @ symbol will be automatically removed"
+msgstr "@符号将自动移除"
+
+#: admin/views/settings.php:175
+msgid "The @ symbol will be automatically removed"
+msgstr "@符号将自动移除"
+
+#: admin/views/settings.php:182
+msgid "Usage preview by network"
+msgstr "按网络使用预览"
+
+#: admin/views/settings.php:193
+msgid "(default)"
+msgstr "（默认）"
+
+#: admin/views/settings.php:201
+msgid "Save"
+msgstr "保存"
+
+#: admin/views/settings.php:213
+msgid "Connection test"
+msgstr "连接测试"
+
+#: admin/views/settings.php:219
+msgid "Test connection"
+msgstr "测试连接"
+
+#: admin/views/settings.php:222
+msgid "add keys first"
+msgstr "请先添加密钥"
+
+#: admin/views/settings.php:225
+msgid "The result appears in the notices on this page."
+msgstr "结果将显示在此页面的通知中。"
+
+#: admin/views/settings.php:233
+msgid "Quick help"
+msgstr "快速帮助"
+
+#: admin/views/settings.php:236
+msgid "1. Generate the keys on the %s."
+msgstr "1. 在%s上生成密钥。"
+
+#: admin/views/settings.php:236
+msgid "YoApy website"
+msgstr "YoApy网站"
+
+#: admin/views/settings.php:237
+msgid "2. Paste the %s and %s above."
+msgstr "2. 在上方粘贴%s和%s。"
+
+#: admin/views/settings.php:237
+msgid "Key ID"
+msgstr "密钥ID"
+
+#: admin/views/settings.php:237
+msgid "Secret"
+msgstr "密钥"
+
+#: admin/views/settings.php:238
+msgid "3. Set your %s and, if desired, network-specific @."
+msgstr "3. 设置您的%s，如果需要，还可以设置网络特定的@。"
+
+#: admin/views/settings.php:238
+msgid "default @"
+msgstr "默认@"
+
+#: admin/views/settings.php:239
+msgid "4. Click %s and then %s."
+msgstr "4. 点击%s然后%s。"
+
+#: admin/views/settings.php:239
+msgid "Save"
+msgstr "保存"
+
+#: admin/views/settings.php:239
+msgid "Test connection"
+msgstr "测试连接"
+
+#: admin/views/settings.php:273
+msgid "Show"
+msgstr "显示"
+
+#: admin/views/settings.php:274
+msgid "Hide"
+msgstr "隐藏"
+
+#: admin/views/settings.php:306
+msgid "Copied!"
+msgstr "已复制！"
+
+#: admin/views/settings.php:308
+msgid "Copy manually."
+msgstr "请手动复制。"
+
+#: admin/views/logs.php:59
+msgid "YoApy Logs"
+msgstr "YoApy 日志"
+
+#: admin/views/logs.php:60
+msgid "Send and API return events. Dates in your timezone (BR format)."
+msgstr "发送和API返回事件。日期以您的时区显示（BR格式）。"
+
+#: admin/views/logs.php:65
+msgid "Clear all"
+msgstr "清除全部"
+
+#: admin/views/logs.php:66
+msgid "Tip: click %s to open the complete JSON."
+msgstr "提示：点击%s打开完整的JSON。"
+
+#: admin/views/logs.php:66
+msgid "view details"
+msgstr "查看详情"
+
+#: admin/views/logs.php:80
+msgid "Send"
+msgstr "发送"
+
+#: admin/views/logs.php:85
+msgid "scheduled:"
+msgstr "计划："
+
+#: admin/views/logs.php:96
+msgid "Send return"
+msgstr "发送返回"
+
+#: admin/views/logs.php:108
+msgid "Task status"
+msgstr "任务状态"
+
+#: admin/views/logs.php:115
+msgid "View on %s"
+msgstr "在%s上查看"
+
+#: admin/views/logs.php:125
+msgid "Job completion"
+msgstr "作业完成"
+
+#: admin/views/logs.php:143
+msgid "Delete"
+msgstr "删除"
+
+#: admin/views/logs.php:149
+msgid "view details"
+msgstr "查看详情"
+
+#: admin/views/logs.php:165
+msgid "When (local)"
+msgstr "时间（本地）"
+
+#: admin/views/logs.php:166
+msgid "Action"
+msgstr "操作"
+
+#: admin/views/logs.php:167
+msgid "Summary"
+msgstr "摘要"
+
+#: admin/views/logs.php:168
+msgid "Delete"
+msgstr "删除"
+
+#: admin/views/logs.php:178
+msgid "view details"
+msgstr "查看详情"
+
+#: admin/views/logs.php:187
+msgid "Delete"
+msgstr "删除"
+
+#: admin/views/logs.php:203
+msgid "hide details"
+msgstr "隐藏详情"
+
+#: admin/views/logs.php:204
+msgid "view details"
+msgstr "查看详情"

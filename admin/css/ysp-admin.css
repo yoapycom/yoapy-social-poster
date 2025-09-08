@@ -1,0 +1,362 @@
+/**
+ * Admin CSS for YoApy Social Poster
+ *
+ * @package YoApySocialPoster
+ * @since 1.6.0
+ */
+
+/* WordPress Notices Fix - Ensure readability and override all potential conflicts */
+.ysp-wrap .notice,
+.wrap .notice,
+div.notice,
+.notice {
+    border-radius: 12px !important;
+    padding: 12px 14px !important;
+    margin: 16px 0 !important;
+    border-left: 4px solid;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.ysp-wrap .notice p,
+.wrap .notice p,
+div.notice p,
+.notice p {
+    margin: 0 !important;
+    color: inherit !important;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.ysp-wrap .notice a,
+.wrap .notice a,
+div.notice a,
+.notice a {
+    color: inherit !important;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.ysp-wrap .notice-success,
+.wrap .notice-success,
+div.notice-success,
+.notice-success {
+    background: #ecfdf5 !important;
+    border-left-color: #10b981 !important;
+    color: #065f46 !important;
+}
+
+.ysp-wrap .notice-warning,
+.wrap .notice-warning,
+div.notice-warning,
+.notice-warning {
+    background: #fffbeb !important;
+    border-left-color: #f59e0b !important;
+    color: #92400e !important;
+}
+
+.ysp-wrap .notice-error,
+.wrap .notice-error,
+div.notice-error,
+.notice-error {
+    background: #fef2f2 !important;
+    border-left-color: #ef4444 !important;
+    color: #991b1b !important;
+}
+
+.ysp-wrap .notice-info,
+.wrap .notice-info,
+div.notice-info,
+.notice-info {
+    background: #eff6ff !important;
+    border-left-color: #3b82f6 !important;
+    color: #1e40af !important;
+}
+
+.ysp-wrap .is-dismissible .notice-dismiss,
+.wrap .is-dismissible .notice-dismiss,
+div.is-dismissible .notice-dismiss,
+.is-dismissible .notice-dismiss {
+    top: 8px !important;
+    right: 8px !important;
+    color: inherit !important;
+    opacity: 0.7;
+}
+
+.ysp-wrap .is-dismissible .notice-dismiss:hover,
+.wrap .is-dismissible .notice-dismiss:hover,
+div.is-dismissible .notice-dismiss:hover,
+.is-dismissible .notice-dismiss:hover {
+    opacity: 1;
+}
+
+/* Specific override for any white text issues */
+.notice-warning *,
+.notice-warning p,
+.notice-warning a {
+    color: #92400e !important;
+}
+
+.notice-error *,
+.notice-error p,
+.notice-error a {
+    color: #991b1b !important;
+}
+
+.notice-success *,
+.notice-success p,
+.notice-success a {
+    color: #065f46 !important;
+}
+
+.notice-info *,
+.notice-info p,
+.notice-info a {
+    color: #1e40af !important;
+}
+
+/* Layout Components */
+.ysp-wrap .ysp-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 1.45fr;
+    gap: 20px;
+    margin-top: 8px;
+}
+
+.ysp-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 16px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.ysp-card h2 {
+    margin: 0 0 10px;
+    font-size: 18px;
+}
+
+.ysp-card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* Form Components */
+.ysp-field {
+    margin-bottom: 12px;
+}
+
+.ysp-field.two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.ysp-field label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.ysp-input {
+    width: 100%;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    padding: 10px 12px;
+    background: #fff;
+}
+
+/* Status & Badge Components */
+.ysp-chips .chip {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #d1d5db;
+    border-radius: 999px;
+    padding: 6px 10px;
+    margin-right: 8px;
+    margin-bottom: 6px;
+    background: #fff;
+}
+
+.badge {
+    display: inline-block;
+    background: #eef2ff;
+    color: #3730a3;
+    border-radius: 999px;
+    padding: 2px 8px;
+    margin-right: 4px;
+    font-size: 12px;
+    border: 1px solid #c7d2fe;
+}
+
+.status {
+    display: inline-block;
+    border-radius: 999px;
+    padding: 4px 10px;
+    font-size: 12px;
+    border: 1px solid #e5e7eb;
+    background: #f9fafb;
+}
+
+.status-complete {
+    background: #ecfdf5;
+    border-color: #a7f3d0;
+    color: #065f46;
+}
+
+.status-processing {
+    background: #fef3c7;
+    border-color: #fde68a;
+    color: #92400e;
+}
+
+.status-error {
+    background: #fee2e2;
+    border-color: #fecaca;
+    color: #991b1b;
+}
+
+/* Action Components */
+.ysp-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.ysp-actions-cell .button {
+    margin-right: 6px;
+    margin-bottom: 6px;
+}
+
+/* Preview Components */
+.ysp-preview {
+    margin-top: 20px;
+}
+
+.ysp-preview-box {
+    border: 1px dashed #d1d5db;
+    border-radius: 10px;
+    padding: 12px;
+    background: #fafafa;
+}
+
+.ysp-preview-box .text {
+    white-space: pre-wrap;
+    margin-top: 8px;
+}
+
+/* Table Components */
+.ysp-table-wrap {
+    overflow-x: auto;
+}
+
+/* CTA Components */
+.ysp-cta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin: 8px 0;
+}
+
+.ysp-cta .icon {
+    font-size: 18px;
+}
+
+/* Responsive Design */
+@media (max-width: 782px) {
+    .ysp-wrap .ysp-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .ysp-field.two {
+        grid-template-columns: 1fr;
+    }
+
+    .ysp-actions-mobile {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .ysp-actions-mobile .button {
+        width: 100%;
+    }
+
+    .ysp-card {
+        border-radius: 12px;
+        padding: 12px;
+    }
+
+    .ysp-table thead {
+        display: none;
+    }
+
+    .ysp-table tr {
+        display: block;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .ysp-table td {
+        display: flex;
+        justify-content: space-between;
+        padding: 6px 8px;
+        border: none;
+    }
+
+    .ysp-table td:before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #374151;
+        margin-right: 10px;
+    }
+
+    #ysp_tasks_tbody tr td:nth-child(1) {
+        display: block;
+    }
+
+    .ysp-actions-cell {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .ysp-actions-cell .button {
+        flex: 1 0 32%;
+    }
+}
+
+/* Garante que a pré-visualização não sobreponha os menus ou a barra de admin */
+.ysp-wrap .ysp-device {
+    position: relative;
+    z-index: 900; /* Um valor alto, mas inferior ao do menu do WP */
+}
+
+/* Garante que o menu de pré-visualização fique acima da pré-visualização do dispositivo */
+.ysp-wrap #ysp_prev_modes {
+    position: relative;
+    z-index: 950; /* Um valor maior que o do dispositivo, para que fique na frente */
+    background-color: #fff; /* Adiciona um fundo para evitar transparência */
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Ajuste para o contêiner principal do planner se necessário */
+.ysp-wrap {
+    position: relative;
+    z-index: 1;
+}
+
+/* Prevenção de conflitos com a barra de admin do WordPress */
+body.admin-bar .ysp-wrap .ysp-device.sticky {
+    top: 32px; /* Ajusta a posição se a pré-visualização for fixa */
+}

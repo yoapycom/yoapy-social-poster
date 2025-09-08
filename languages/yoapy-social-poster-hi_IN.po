@@ -1,0 +1,620 @@
+# Hindi language file for YoApy Social Poster
+# Copyright (C) 2024 YoApy Social Poster
+# This file is distributed under the same license as the YoApy Social Poster package.
+msgid ""
+msgstr ""
+"Project-Id-Version: YoApy Social Poster 1.6.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/yoapy-social-poster\n"
+"POT-Creation-Date: 2024-09-04 12:00+0000\n"
+"PO-Revision-Date: 2024-09-04 12:00+0000\n"
+"Last-Translator: YoApy Team\n"
+"Language-Team: Hindi\n"
+"Language: hi_IN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: includes/classes/class-admin.php:63
+msgid "YoApy Social Poster"
+msgstr "YoApy सोशल पोस्टर"
+
+#: includes/classes/class-planner.php:38
+msgid "YoApy Planner"
+msgstr "YoApy योजनाकार"
+
+#: includes/classes/class-planner.php:38
+msgid "Settings"
+msgstr "सेटिंग्स"
+
+#: includes/classes/class-planner.php:39
+msgid "Logs"
+msgstr "लॉग्स"
+
+#: includes/classes/class-planner.php:69
+msgid "Settings saved."
+msgstr "सेटिंग्स सहेजी गईं।"
+
+#: includes/classes/class-planner.php:74
+msgid "Failed"
+msgstr "असफल"
+
+#: includes/classes/class-planner.php:75
+msgid "Connected"
+msgstr "जुड़ा हुआ"
+
+#: admin/views/metabox.php:10
+msgid "Need API Keys?"
+msgstr "API कीज़ चाहिए?"
+
+#: admin/views/metabox.php:11
+msgid "Create them for free at"
+msgstr "इन्हें मुफ्त में बनाएं"
+
+#: admin/views/metabox.php:18
+msgid "Enable social posting"
+msgstr "सोशल पोस्टिंग सक्षम करें"
+
+#: admin/views/metabox.php:23
+msgid "Networks"
+msgstr "नेटवर्क्स"
+
+#: admin/views/metabox.php:29
+msgid "Type"
+msgstr "प्रकार"
+
+#: admin/views/metabox.php:31
+msgid "Image Post"
+msgstr "इमेज पोस्ट"
+
+#: admin/views/metabox.php:32
+msgid "Video/Reels"
+msgstr "वीडियो/रील्स"
+
+#: admin/views/metabox.php:33
+msgid "Story"
+msgstr "स्टोरी"
+
+#: admin/views/metabox.php:37
+msgid "Caption/Title"
+msgstr "कैप्शन/शीर्षक"
+
+#: admin/views/metabox.php:41
+msgid "Image URL"
+msgstr "इमेज URL"
+
+#: admin/views/metabox.php:46
+msgid "Video URL"
+msgstr "वीडियो URL"
+
+#: admin/views/metabox.php:51
+msgid "Article URL"
+msgstr "लेख URL"
+
+#: admin/views/metabox.php:55
+msgid "Schedule"
+msgstr "शेड्यूल"
+
+#: admin/views/metabox.php:59
+msgid "Leave empty to publish immediately"
+msgstr "तुरंत प्रकाशित करने के लिए खाली छोड़ें"
+
+#: admin/views/planner.php:67
+msgid "YoApy Planner"
+msgstr "YoApy योजनाकार"
+
+#: admin/views/planner.php:68
+msgid "Schedule independent publications and track their status."
+msgstr "स्वतंत्र प्रकाशन शेड्यूल करें और उनकी स्थिति ट्रैक करें।"
+
+#: admin/views/planner.php:72
+msgid "Settings"
+msgstr "सेटिंग्स"
+
+#: admin/views/planner.php:76
+msgid "Create API Keys"
+msgstr "API कीज़ बनाएं"
+
+#: admin/views/planner.php:84
+msgid "Pending"
+msgstr "लंबित"
+
+#: admin/views/planner.php:85
+msgid "Scheduled"
+msgstr "शेड्यूल्ड"
+
+#: admin/views/planner.php:86
+msgid "Processing"
+msgstr "प्रसंस्करण"
+
+#: admin/views/planner.php:87
+msgid "Completed"
+msgstr "पूर्ण"
+
+#: admin/views/planner.php:88
+msgid "Errors"
+msgstr "त्रुटियां"
+
+#: admin/views/planner.php:95
+msgid "Don't have API keys?"
+msgstr "API कीज़ नहीं हैं?"
+
+#: admin/views/planner.php:95
+msgid "Create them for free at YoApy"
+msgstr "YoApy पर मुफ्त में बनाएं"
+
+#: admin/views/planner.php:99
+msgid "API Keys Pending"
+msgstr "API कीज़ लंबित"
+
+#: admin/views/planner.php:105
+msgid "Configure your YoApy API keys in %sSettings%s to send tasks."
+msgstr "कार्य भेजने के लिए %sसेटिंग्स%s में अपनी YoApy API कीज़ कॉन्फ़िगर करें।"
+
+#: admin/views/planner.php:113
+msgid "New Task"
+msgstr "नया कार्य"
+
+#: admin/views/planner.php:120
+msgid "Networks"
+msgstr "नेटवर्क्स"
+
+#: admin/views/planner.php:147
+msgid "Type"
+msgstr "प्रकार"
+
+#: admin/views/planner.php:149
+msgid "Image Post (FB/IG)"
+msgstr "इमेज पोस्ट (FB/IG)"
+
+#: admin/views/planner.php:150
+msgid "Video/Reels (IG/FB/YouTube/TikTok)"
+msgstr "वीडियो/रील्स (IG/FB/YouTube/TikTok)"
+
+#: admin/views/planner.php:151
+msgid "Story (FB/IG)"
+msgstr "स्टोरी (FB/IG)"
+
+#: admin/views/planner.php:152
+msgid "YouTube Live Schedule"
+msgstr "YouTube लाइव शेड्यूल"
+
+#: admin/views/planner.php:158
+msgid "Caption / Title"
+msgstr "कैप्शन / शीर्षक"
+
+#: admin/views/planner.php:160
+msgid "Write your text... (#hashtags, @mentions)"
+msgstr "अपना टेक्स्ट लिखें... (#hashtags, @mentions)"
+
+#: admin/views/planner.php:194
+msgid "Drag image here"
+msgstr "यहां इमेज खींचें"
+
+#: admin/views/planner.php:195
+msgid "or"
+msgstr "या"
+
+#: admin/views/planner.php:195
+msgid "click to choose"
+msgstr "चुनने के लिए क्लिक करें"
+
+#: admin/views/planner.php:195
+msgid "also supports paste (Ctrl/⌘+V)"
+msgstr "पेस्ट भी समर्थित (Ctrl/⌘+V)"
+
+#: admin/views/planner.php:213
+msgid "Drag video here"
+msgstr "यहां वीडियो खींचें"
+
+#: admin/views/planner.php:223
+msgid "Article URL (FB optional)"
+msgstr "लेख URL (FB वैकल्पिक)"
+
+#: admin/views/planner.php:229
+msgid "Schedule"
+msgstr "शेड्यूल"
+
+#: admin/views/planner.php:231
+msgid "Leave empty to send now."
+msgstr "अभी भेजने के लिए खाली छोड़ें।"
+
+#: admin/views/planner.php:236
+msgid "Title (internal)"
+msgstr "शीर्षक (आंतरिक)"
+
+#: admin/views/planner.php:238
+msgid "Save Task"
+msgstr "कार्य सहेजें"
+
+#: admin/views/planner.php:254
+msgid "Preview"
+msgstr "पूर्वावलोकन"
+
+#: admin/views/planner.php:259
+msgid "Feed"
+msgstr "फीड"
+
+#: admin/views/planner.php:260
+msgid "Stories"
+msgstr "स्टोरीज़"
+
+#: admin/views/planner.php:261
+msgid "Reels"
+msgstr "रील्स"
+
+#: admin/views/planner.php:262
+msgid "TikTok"
+msgstr "TikTok"
+
+#: admin/views/planner.php:263
+msgid "YouTube"
+msgstr "YouTube"
+
+#: admin/views/planner.php:264
+msgid "Shorts"
+msgstr "शॉर्ट्स"
+
+#: admin/views/planner.php:525
+msgid "Tasks"
+msgstr "कार्य"
+
+#: admin/views/planner.php:530
+msgid "Search title..."
+msgstr "शीर्षक खोजें..."
+
+#: admin/views/planner.php:532
+msgid "All statuses"
+msgstr "सभी स्थितियां"
+
+#: admin/views/planner.php:533
+msgid "Pending"
+msgstr "लंबित"
+
+#: admin/views/planner.php:534
+msgid "Scheduled"
+msgstr "शेड्यूल्ड"
+
+#: admin/views/planner.php:535
+msgid "Processing"
+msgstr "प्रसंस्करण"
+
+#: admin/views/planner.php:536
+msgid "Completed"
+msgstr "पूर्ण"
+
+#: admin/views/planner.php:537
+msgid "Errors"
+msgstr "त्रुटियां"
+
+#: admin/views/planner.php:541
+msgid "Refresh"
+msgstr "रीफ्रेश"
+
+#: admin/views/planner.php:550
+msgid "Title"
+msgstr "शीर्षक"
+
+#: admin/views/planner.php:551
+msgid "Networks"
+msgstr "नेटवर्क्स"
+
+#: admin/views/planner.php:552
+msgid "Type"
+msgstr "प्रकार"
+
+#: admin/views/planner.php:553
+msgid "When"
+msgstr "कब"
+
+#: admin/views/planner.php:554
+msgid "Status"
+msgstr "स्थिति"
+
+#: admin/views/planner.php:555
+msgid "Actions"
+msgstr "कार्य"
+
+#: admin/views/planner.php:567
+msgid "Post"
+msgstr "पोस्ट"
+
+#: admin/views/planner.php:568
+msgid "Refresh"
+msgstr "रीफ्रेश"
+
+#: admin/views/planner.php:569
+msgid "Delete"
+msgstr "हटाएं"
+
+#: admin/views/planner.php:580
+msgid "Type:"
+msgstr "प्रकार:"
+
+#: admin/views/planner.php:581
+msgid "When:"
+msgstr "कब:"
+
+#: admin/views/planner.php:582
+msgid "Status:"
+msgstr "स्थिति:"
+
+#: admin/views/planner.php:586
+msgid "Post"
+msgstr "पोस्ट"
+
+#: admin/views/planner.php:587
+msgid "Refresh"
+msgstr "रीफ्रेश"
+
+#: admin/views/planner.php:588
+msgid "Delete"
+msgstr "हटाएं"
+
+#: admin/views/planner.php:595
+msgid "No tasks yet. Create your first publication above ✨"
+msgstr "अभी तक कोई कार्य नहीं। ऊपर अपना पहला प्रकाशन बनाएं ✨"
+
+#: admin/views/settings.php:22
+msgid "YoApy Settings"
+msgstr "YoApy सेटिंग्स"
+
+#: admin/views/settings.php:23
+msgid "Connect your keys, set accounts by network and test the integration."
+msgstr "अपनी कीज़ कनेक्ट करें, नेटवर्क द्वारा खाते सेट करें और एकीकरण का परीक्षण करें।"
+
+#: admin/views/settings.php:29
+msgid "Keys configured"
+msgstr "कीज़ कॉन्फ़िगर की गईं"
+
+#: admin/views/settings.php:29
+msgid "Keys pending"
+msgstr "कीज़ लंबित"
+
+#: admin/views/settings.php:37
+msgid "Create your keys for free at %s."
+msgstr "%s पर अपनी कीज़ मुफ्त में बनाएं।"
+
+#: admin/views/settings.php:42
+msgid "Create Keys"
+msgstr "कीज़ बनाएं"
+
+#: admin/views/settings.php:50
+msgid "YoApy Credentials"
+msgstr "YoApy क्रेडेंशियल्स"
+
+#: admin/views/settings.php:60
+msgid "Base URL"
+msgstr "बेस URL"
+
+#: admin/views/settings.php:64
+msgid "Normally: %s"
+msgstr "सामान्यतः: %s"
+
+#: admin/views/settings.php:69
+msgid "Key ID"
+msgstr "कुंजी ID"
+
+#: admin/views/settings.php:74
+msgid "Copy"
+msgstr "कॉपी"
+
+#: admin/views/settings.php:80
+msgid "Secret (hex)"
+msgstr "सीक्रेट (hex)"
+
+#: admin/views/settings.php:85
+msgid "Show"
+msgstr "दिखाएं"
+
+#: admin/views/settings.php:88
+msgid "Copy"
+msgstr "कॉपी"
+
+#: admin/views/settings.php:91
+msgid "Hexadecimal secret — do not share."
+msgstr "हेक्साडेसिमल सीक्रेट — साझा न करें।"
+
+#: admin/views/settings.php:96
+msgid "Save"
+msgstr "सहेजें"
+
+#: admin/views/settings.php:111
+msgid "Accounts (@) by network"
+msgstr "नेटवर्क द्वारा खाते (@)"
+
+#: admin/views/settings.php:121
+msgid "Default account (@)"
+msgstr "डिफ़ॉल्ट खाता (@)"
+
+#: admin/views/settings.php:125
+msgid "Used when the network-specific @ is empty. (The @ symbol will be automatically removed)"
+msgstr "जब नेटवर्क-विशिष्ट @ खाली हो तो उपयोग किया जाता है। (@ प्रतीक स्वचालित रूप से हटा दिया जाएगा)"
+
+#: admin/views/settings.php:139
+msgid "The @ symbol will be automatically removed"
+msgstr "@ प्रतीक स्वचालित रूप से हटा दिया जाएगा"
+
+#: admin/views/settings.php:151
+msgid "The @ symbol will be automatically removed"
+msgstr "@ प्रतीक स्वचालित रूप से हटा दिया जाएगा"
+
+#: admin/views/settings.php:163
+msgid "The @ symbol will be automatically removed"
+msgstr "@ प्रतीक स्वचालित रूप से हटा दिया जाएगा"
+
+#: admin/views/settings.php:175
+msgid "The @ symbol will be automatically removed"
+msgstr "@ प्रतीक स्वचालित रूप से हटा दिया जाएगा"
+
+#: admin/views/settings.php:182
+msgid "Usage preview by network"
+msgstr "नेटवर्क द्वारा उपयोग पूर्वावलोकन"
+
+#: admin/views/settings.php:193
+msgid "(default)"
+msgstr "(डिफ़ॉल्ट)"
+
+#: admin/views/settings.php:201
+msgid "Save"
+msgstr "सहेजें"
+
+#: admin/views/settings.php:213
+msgid "Connection test"
+msgstr "कनेक्शन परीक्षण"
+
+#: admin/views/settings.php:219
+msgid "Test connection"
+msgstr "कनेक्शन परीक्षण करें"
+
+#: admin/views/settings.php:222
+msgid "add keys first"
+msgstr "पहले कीज़ जोड़ें"
+
+#: admin/views/settings.php:225
+msgid "The result appears in the notices on this page."
+msgstr "परिणाम इस पृष्ठ की सूचनाओं में दिखाई देता है।"
+
+#: admin/views/settings.php:233
+msgid "Quick help"
+msgstr "त्वरित सहायता"
+
+#: admin/views/settings.php:236
+msgid "1. Generate the keys on the %s."
+msgstr "1. %s पर कीज़ जेनरेट करें।"
+
+#: admin/views/settings.php:236
+msgid "YoApy website"
+msgstr "YoApy वेबसाइट"
+
+#: admin/views/settings.php:237
+msgid "2. Paste the %s and %s above."
+msgstr "2. ऊपर %s और %s पेस्ट करें।"
+
+#: admin/views/settings.php:237
+msgid "Key ID"
+msgstr "कुंजी ID"
+
+#: admin/views/settings.php:237
+msgid "Secret"
+msgstr "सीक्रेट"
+
+#: admin/views/settings.php:238
+msgid "3. Set your %s and, if desired, network-specific @."
+msgstr "3. अपना %s सेट करें और, यदि चाहें तो, नेटवर्क-विशिष्ट @।"
+
+#: admin/views/settings.php:238
+msgid "default @"
+msgstr "डिफ़ॉल्ट @"
+
+#: admin/views/settings.php:239
+msgid "4. Click %s and then %s."
+msgstr "4. %s पर क्लिक करें और फिर %s।"
+
+#: admin/views/settings.php:239
+msgid "Save"
+msgstr "सहेजें"
+
+#: admin/views/settings.php:239
+msgid "Test connection"
+msgstr "कनेक्शन परीक्षण करें"
+
+#: admin/views/settings.php:273
+msgid "Show"
+msgstr "दिखाएं"
+
+#: admin/views/settings.php:274
+msgid "Hide"
+msgstr "छुपाएं"
+
+#: admin/views/settings.php:306
+msgid "Copied!"
+msgstr "कॉपी हो गया!"
+
+#: admin/views/settings.php:308
+msgid "Copy manually."
+msgstr "मैन्युअल रूप से कॉपी करें।"
+
+#: admin/views/logs.php:59
+msgid "YoApy Logs"
+msgstr "YoApy लॉग्स"
+
+#: admin/views/logs.php:60
+msgid "Send and API return events. Dates in your timezone (BR format)."
+msgstr "भेजें और API रिटर्न इवेंट्स। आपके टाइमज़ोन में दिनांक (BR प्रारूप)।"
+
+#: admin/views/logs.php:65
+msgid "Clear all"
+msgstr "सभी साफ़ करें"
+
+#: admin/views/logs.php:66
+msgid "Tip: click %s to open the complete JSON."
+msgstr "टिप: पूरा JSON खोलने के लिए %s पर क्लिक करें।"
+
+#: admin/views/logs.php:66
+msgid "view details"
+msgstr "विवरण देखें"
+
+#: admin/views/logs.php:80
+msgid "Send"
+msgstr "भेजें"
+
+#: admin/views/logs.php:85
+msgid "scheduled:"
+msgstr "शेड्यूल्ड:"
+
+#: admin/views/logs.php:96
+msgid "Send return"
+msgstr "भेजी गई वापसी"
+
+#: admin/views/logs.php:108
+msgid "Task status"
+msgstr "कार्य स्थिति"
+
+#: admin/views/logs.php:115
+msgid "View on %s"
+msgstr "%s पर देखें"
+
+#: admin/views/logs.php:125
+msgid "Job completion"
+msgstr "कार्य पूर्णता"
+
+#: admin/views/logs.php:143
+msgid "Delete"
+msgstr "हटाएं"
+
+#: admin/views/logs.php:149
+msgid "view details"
+msgstr "विवरण देखें"
+
+#: admin/views/logs.php:165
+msgid "When (local)"
+msgstr "कब (स्थानीय)"
+
+#: admin/views/logs.php:166
+msgid "Action"
+msgstr "कार्य"
+
+#: admin/views/logs.php:167
+msgid "Summary"
+msgstr "सारांश"
+
+#: admin/views/logs.php:168
+msgid "Delete"
+msgstr "हटाएं"
+
+#: admin/views/logs.php:178
+msgid "view details"
+msgstr "विवरण देखें"
+
+#: admin/views/logs.php:187
+msgid "Delete"
+msgstr "हटाएं"
+
+#: admin/views/logs.php:203
+msgid "hide details"
+msgstr "विवरण छुपाएं"
+
+#: admin/views/logs.php:204
+msgid "view details"
+msgstr "विवरण देखें"
