@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: YoApy Social Poster
- * Plugin URI: https://yoapy.com
+ * Plugin URI: https://yoapy.com/sdk/wordpress
  * Description: Schedule and publish posts to social networks (Facebook, Instagram, YouTube, TikTok) via YoApy API, with visual planner, integrated metabox and detailed logs.
  * Version: 1.6.0
  * Author: YoApy Team
@@ -11,7 +11,7 @@
  * Text Domain: yoapy-social-poster
  * Domain Path: /languages
  * Requires at least: 5.0
- * Tested up to: 6.4
+ * Tested up to: 6.8
  * Requires PHP: 7.4
  *
  * @package YoApySocialPoster
