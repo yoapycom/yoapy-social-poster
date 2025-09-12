@@ -10,9 +10,9 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-class YSP_Planner {
+class YOAPSOPO_Planner {
     private static $instance = null;
-    private $option_key = 'ysp_tasks';
+    private $option_key = 'yoapsopo_tasks';
 
     public static function get_instance() {
         if ( null === self::$instance ) { self::$instance = new self(); }
@@ -21,11 +21,11 @@ class YSP_Planner {
 
     public function __construct() {
         add_action('admin_menu', array($this,'admin_menu'));
-        add_action('wp_ajax_ysp_task_action', array($this, 'ajax_task_action'));
-        add_action('wp_ajax_ysp_save_task_ajax', array($this, 'ajax_save_task'));
-        add_action('wp_ajax_ysp_get_tasks_ajax', array($this, 'ajax_get_tasks'));
-        add_action('wp_ajax_ysp_get_tasks', array($this, 'ajax_get_tasks')); // For admin.js compatibility
-        add_action('admin_post_ysp_save_task', array($this, 'handle_save_task_fallback')); // Apenas como fallback
+        add_action('wp_ajax_yoapsopo_task_action', array($this, 'ajax_task_action'));
+        add_action('wp_ajax_yoapsopo_save_task_ajax', array($this, 'ajax_save_task'));
+        add_action('wp_ajax_yoapsopo_get_tasks_ajax', array($this, 'ajax_get_tasks'));
+        add_action('wp_ajax_yoapsopo_get_tasks', array($this, 'ajax_get_tasks')); // For admin.js compatibility
+        add_action('admin_post_yoapsopo_save_task', array($this, 'handle_save_task_fallback')); // Apenas como fallback
     }
 
     /**
@@ -62,18 +62,18 @@ class YSP_Planner {
     }
 
     public function admin_menu(){
-        add_menu_page('YoApy Planner','YoApy Planner','manage_options','ysp_planner',array($this,'render_planner'),'dashicons-share',26);
-        add_submenu_page('ysp_planner','Settings','Settings','manage_options','ysp_settings',array($this,'render_settings'));
-        add_submenu_page('ysp_planner','Logs','Logs','manage_options','ysp_logs',array($this,'render_logs'));
+        add_menu_page('YoApy Planner','YoApy Planner','manage_options','yoapsopo_planner',array($this,'render_planner'),'dashicons-share',26);
+        add_submenu_page('yoapsopo_planner','Settings','Settings','manage_options','yoapsopo_settings',array($this,'render_settings'));
+        add_submenu_page('yoapsopo_planner','Logs','Logs','manage_options','yoapsopo_logs',array($this,'render_logs'));
     }
 
     public function render_planner(){
         wp_enqueue_media();
-        wp_enqueue_script('ysp-planner-js', YSP_PLUGIN_URL . 'admin/js/ysp-planner.js', array('jquery'), YSP_VERSION, true);
+        wp_enqueue_script('yoapsopo-planner-js', YOAPSOPO_PLUGIN_URL . 'admin/js/yoapsopo-planner.js', array('jquery'), YOAPSOPO_VERSION, true);
 
-        wp_localize_script('ysp-planner-js', 'ysp_ajax_object', array(
+        wp_localize_script('yoapsopo-planner-js', 'yoapsopo_ajax_object', array(
             'ajax_url' => admin_url('admin-ajax.php'),
-            'nonce'    => wp_create_nonce('ysp_ajax_nonce'),
+            'nonce'    => wp_create_nonce('yoapsopo_ajax_nonce'),
             'i18n'     => array(
                 'saving'        => __('Saving...', 'yoapy-social-poster'),
                 'taskSaved'     => __('Task saved successfully!', 'yoapy-social-poster'),
@@ -87,14 +87,14 @@ class YSP_Planner {
         ));
 
         $tasks = $this->get_tasks();
-        $hasKeys = YSP_Client::has_keys();
-        include YSP_PLUGIN_DIR.'admin/views/planner-main.php';
+        $hasKeys = YOAPSOPO_Client::has_keys();
+        include YOAPSOPO_PLUGIN_DIR.'admin/views/planner-main.php';
     }
 
     public function render_settings(){
         // Salvar configurações (com nonce)
-        if ( isset($_POST['ysp_save_settings']) && check_admin_referer('ysp_save_settings','ysp_nonce_save') ) {
-            $opt  = get_option('ysp_settings', array());
+        if ( isset($_POST['yoapsopo_save_settings']) && check_admin_referer('yoapsopo_save_settings','yoapsopo_nonce_save') ) {
+            $opt  = get_option('yoapsopo_settings', array());
             $post = wp_unslash( $_POST ); // <- unslash UMA vez
 
             $form_type = isset($post['form_type']) ? sanitize_text_field( $post['form_type'] ) : '';
@@ -121,13 +121,13 @@ class YSP_Planner {
                 $opt['account_tiktok']    = sanitize_text_field( ltrim( $acc_tt, '@' ) );
             }
 
-            update_option( 'ysp_settings', $opt, false );
-            add_settings_error( 'ysp_settings', 'saved', __( 'Settings saved.', 'yoapy-social-poster' ), 'updated' );
+            update_option( 'yoapsopo_settings', $opt, false );
+            add_settings_error( 'yoapsopo_settings', 'saved', __( 'Settings saved.', 'yoapy-social-poster' ), 'updated' );
         }
 
         // Teste de conexão (com nonce)
-        if ( isset($_POST['ysp_ping']) && check_admin_referer('ysp_ping','ysp_nonce_ping') ) {
-            $client = new YSP_Client();
+        if ( isset($_POST['yoapsopo_ping']) && check_admin_referer('yoapsopo_ping','yoapsopo_nonce_ping') ) {
+            $client = new YOAPSOPO_Client();
             $res    = $client->ping();
             $msg    = is_wp_error($res)
                 ? __( 'Failed', 'yoapy-social-poster' ) . ' ❌ ' . $res->get_error_message()
@@ -135,26 +135,26 @@ class YSP_Planner {
                     ? __( 'Connected', 'yoapy-social-poster' ) . ' ✅'
                     : __( 'Failed', 'yoapy-social-poster' ) . ' ❌ (HTTP ' . (int) $res['http_code'] . ')' );
 
-            add_settings_error( 'ysp_settings', 'ping', $msg, ( (int) ( $res['http_code'] ?? 0 ) === 200 ) ? 'updated' : 'error' );
+            add_settings_error( 'yoapsopo_settings', 'ping', $msg, ( (int) ( $res['http_code'] ?? 0 ) === 200 ) ? 'updated' : 'error' );
         }
 
-        include YSP_PLUGIN_DIR.'admin/views/settings.php';
+        include YOAPSOPO_PLUGIN_DIR.'admin/views/settings.php';
     }
 
     public function render_logs(){
-        if ( isset($_POST['ysp_clear_logs']) && check_admin_referer('ysp_clear_logs') ) {
-            YSP_Logger::clear();
+        if ( isset($_POST['yoapsopo_clear_logs']) && check_admin_referer('yoapsopo_clear_logs') ) {
+            YOAPSOPO_Logger::clear();
         }
-        if ( isset($_POST['ysp_delete_log']) && check_admin_referer('ysp_delete_log') ) {
+        if ( isset($_POST['yoapsopo_delete_log']) && check_admin_referer('yoapsopo_delete_log') ) {
             $post = wp_unslash( $_POST );
             $line = isset($post['line']) ? absint( $post['line'] ) : 0;
-            YSP_Logger::delete_line( $line );
+            YOAPSOPO_Logger::delete_line( $line );
         }
-        include YSP_PLUGIN_DIR.'admin/views/logs.php';
+        include YOAPSOPO_PLUGIN_DIR.'admin/views/logs.php';
     }
 
     public function ajax_save_task() {
-        if ( ! check_ajax_referer( 'ysp_ajax_nonce', 'nonce', false ) || ! current_user_can( 'manage_options' ) ) {
+        if ( ! check_ajax_referer( 'yoapsopo_ajax_nonce', 'nonce', false ) || ! current_user_can( 'manage_options' ) ) {
             wp_send_json_error( array( 'message' => 'Permission denied.' ), 403 );
         }
 
@@ -176,7 +176,7 @@ class YSP_Planner {
     }
 
     public function handle_save_task_fallback(){
-        if ( ! current_user_can( 'manage_options' ) || ! check_admin_referer( 'ysp_save_task' ) ) {
+        if ( ! current_user_can( 'manage_options' ) || ! check_admin_referer( 'yoapsopo_save_task' ) ) {
             wp_die( 'forbidden' );
         }
 
@@ -185,7 +185,7 @@ class YSP_Planner {
         $tasks[] = $task;
 
         update_option( $this->option_key, $tasks, false );
-        wp_redirect( admin_url( 'admin.php?page=ysp_planner&saved=1' ) );
+        wp_redirect( admin_url( 'admin.php?page=yoapsopo_planner&saved=1' ) );
         exit;
     }
 
@@ -240,7 +240,7 @@ class YSP_Planner {
     }
 
     public function ajax_task_action(){
-        if ( ! check_ajax_referer( 'ysp_ajax_nonce', 'nonce', false ) || ! current_user_can( 'manage_options' ) ) {
+        if ( ! check_ajax_referer( 'yoapsopo_ajax_nonce', 'nonce', false ) || ! current_user_can( 'manage_options' ) ) {
             wp_send_json_error( array( 'message' => 'Permission denied.' ), 403 );
         }
 
@@ -276,9 +276,9 @@ class YSP_Planner {
     }
 
     public function run_task(&$task){
-        $client = new YSP_Client();
+        $client = new YOAPSOPO_Client();
 
-        if ( ! YSP_Client::has_keys() ) {
+        if ( ! YOAPSOPO_Client::has_keys() ) {
             $task['status'] = 'error';
             $task['results']['system'] = array( 'success' => false, 'message' => 'API keys are not configured.' );
             return;
@@ -305,7 +305,7 @@ class YSP_Planner {
                 $task['status'] = 'error';
                 $task['results'][ $net ] = array( 'success' => false, 'message' => $res->get_error_message() );
                 $all_successful = false;
-                YSP_Logger::log('task_network_error', array(
+                YOAPSOPO_Logger::log('task_network_error', array(
                     'task_id' => $task['id'],
                     'network' => $net,
                     'error' => $res->get_error_message()
@@ -315,21 +315,21 @@ class YSP_Planner {
                 if ( ! empty( $res['body']['task_id'] ) ){
                     $task['api_task_ids'][ $net ] = $res['body']['task_id'];
                     $has_async_tasks = true;
-                    YSP_Logger::log('task_async_created', array(
+                    YOAPSOPO_Logger::log('task_async_created', array(
                         'task_id' => $task['id'],
                         'network' => $net,
                         'api_task_id' => $res['body']['task_id']
                     ));
                 } elseif ( isset( $res['body']['success'] ) && true === $res['body']['success'] ) {
                     // For immediate success, we can mark as complete
-                    YSP_Logger::log('task_immediate_success', array(
+                    YOAPSOPO_Logger::log('task_immediate_success', array(
                         'task_id' => $task['id'],
                         'network' => $net
                     ));
                 } else {
                     $task['status'] = 'error';
                     $all_successful = false;
-                    YSP_Logger::log('task_network_failed', array(
+                    YOAPSOPO_Logger::log('task_network_failed', array(
                         'task_id' => $task['id'],
                         'network' => $net,
                         'response' => $res['body']
@@ -341,7 +341,7 @@ class YSP_Planner {
         // If all networks were successful and we don't have async tasks, mark as complete
         if ($all_successful && !$has_async_tasks) {
             $task['status'] = 'complete';
-            YSP_Logger::log('task_completed_immediately', array('task_id' => $task['id']));
+            YOAPSOPO_Logger::log('task_completed_immediately', array('task_id' => $task['id']));
         }
     }
 
@@ -357,9 +357,9 @@ class YSP_Planner {
             if (isset($task['status']) && $task['status'] === 'scheduled' &&
                 isset($task['when']) && $task['when'] <= time()) {
                 // Run the task
-                YSP_Logger::log('do_job_start', array('task_id' => $task['id']));
+                YOAPSOPO_Logger::log('do_job_start', array('task_id' => $task['id']));
                 $this->run_task($task);
-                YSP_Logger::log('do_job_end', array('task_id' => $task['id'], 'status' => $task['status']));
+                YOAPSOPO_Logger::log('do_job_end', array('task_id' => $task['id'], 'status' => $task['status']));
                 $updated = true;
             }
         }
@@ -376,9 +376,9 @@ class YSP_Planner {
     public function check_task_results() {
         $tasks = get_option($this->option_key, array());
         $updated = false;
-        $client = new YSP_Client();
+        $client = new YOAPSOPO_Client();
         
-        YSP_Logger::log('check_task_results_start', array('total_tasks' => count($tasks)));
+        YOAPSOPO_Logger::log('check_task_results_start', array('total_tasks' => count($tasks)));
 
         foreach ($tasks as &$task) {
             // Check if task is processing and has API task IDs to check
@@ -415,7 +415,7 @@ class YSP_Planner {
                         );
                         $has_errors = true;
                         $task_updated = true;
-                        YSP_Logger::log('task_result_error', array(
+                        YOAPSOPO_Logger::log('task_result_error', array(
                             'task_id' => $task['id'],
                             'network' => $network,
                             'error' => $result->get_error_message()
@@ -432,7 +432,7 @@ class YSP_Planner {
                             );
                             $task_updated = true;
                             $networks_with_results++;
-                            YSP_Logger::log('task_completed', array(
+                            YOAPSOPO_Logger::log('task_completed', array(
                                 'task_id' => $task['id'],
                                 'network' => $network,
                                 'permalink' => $network_data['permalink'] ?? ''
@@ -447,7 +447,7 @@ class YSP_Planner {
                             $has_errors = true;
                             $task_updated = true;
                             $networks_with_results++;
-                            YSP_Logger::log('task_failed', array(
+                            YOAPSOPO_Logger::log('task_failed', array(
                                 'task_id' => $task['id'],
                                 'network' => $network,
                                 'error' => $network_data['message'] ?? $body['message'] ?? 'Task failed'
@@ -463,11 +463,11 @@ class YSP_Planner {
                     if (!$has_errors && $networks_with_results === $total_networks) {
                         $task['status'] = 'complete';
                         $updated = true;
-                        YSP_Logger::log('task_all_complete', array('task_id' => $task['id']));
+                        YOAPSOPO_Logger::log('task_all_complete', array('task_id' => $task['id']));
                     } elseif ($has_errors) {
                         $task['status'] = 'error';
                         $updated = true;
-                        YSP_Logger::log('task_has_errors', array('task_id' => $task['id']));
+                        YOAPSOPO_Logger::log('task_has_errors', array('task_id' => $task['id']));
                     }
                     // If not all complete and no errors, task remains in processing status
                 }
@@ -477,10 +477,10 @@ class YSP_Planner {
         // Save updated tasks if any were processed
         if ($updated) {
             update_option($this->option_key, $tasks, false);
-            YSP_Logger::log('check_task_results_updated', array('updated_tasks' => $updated));
+            YOAPSOPO_Logger::log('check_task_results_updated', array('updated_tasks' => $updated));
         }
         
-        YSP_Logger::log('check_task_results_end', array('updated' => $updated));
+        YOAPSOPO_Logger::log('check_task_results_end', array('updated' => $updated));
     }
 
     /**
@@ -497,7 +497,7 @@ class YSP_Planner {
     }
 
     public function ajax_get_tasks() {
-        if ( ! check_ajax_referer( 'ysp_ajax_nonce', 'nonce', false ) || ! current_user_can( 'manage_options' ) ) {
+        if ( ! check_ajax_referer( 'yoapsopo_ajax_nonce', 'nonce', false ) || ! current_user_can( 'manage_options' ) ) {
             wp_send_json_error( array( 'message' => 'Permission denied.' ), 403 );
         }
 
@@ -506,7 +506,7 @@ class YSP_Planner {
 
         $tasks = $this->get_tasks();
         // Debug: log the tasks to see what's being returned
-        YSP_Logger::log('ajax_get_tasks_returning', array('tasks' => $tasks));
+        YOAPSOPO_Logger::log('ajax_get_tasks_returning', array('tasks' => $tasks));
 
         wp_send_json_success( array( 'tasks' => $tasks ) );
     }

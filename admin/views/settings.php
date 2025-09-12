@@ -1,5 +1,5 @@
 <?php if ( ! defined( 'ABSPATH' ) ) { exit; }
-$opt = get_option('ysp_settings', array());
+$opt = get_option('yoapsopo_settings', array());
 $hasKeys = !empty($opt['key_id']) && !empty($opt['secret']);
 
 $acc_default = trim($opt['account'] ?? '');
@@ -18,7 +18,7 @@ $resolved = array(
 ?>
 
 
-<div class="wrap ysp-wrap !max-w-[1120px]">
+<div class="wrap yoapsopo-wrap !max-w-[1120px]">
     <!-- Header gradient -->
     <div class="rounded-2xl mb-6 p-5 md:p-6 text-white flex items-center justify-between gap-4" style="background:linear-gradient(135deg,#0ea5e9,#7c3aed)">
         <div class="min-w-0">
@@ -63,9 +63,9 @@ $resolved = array(
                 </div>
                 <div class="px-5 py-5">
                     <form method="post" class="space-y-5">
-                        <?php wp_nonce_field('ysp_save_settings','ysp_nonce_save'); ?>
+                        <?php wp_nonce_field('yoapsopo_save_settings','yoapsopo_nonce_save'); ?>
                         <!-- Form identifier for credentials -->
-                        <input type="hidden" name="ysp_save_settings" value="1"/>
+                        <input type="hidden" name="yoapsopo_save_settings" value="1"/>
                         <input type="hidden" name="form_type" value="credentials"/>
 
                         <div>
@@ -85,10 +85,10 @@ $resolved = array(
                             <div>
                                 <label class="block text-sm font-medium text-slate-700 mb-1"><?php esc_html_e( 'Key ID', 'yoapy-social-poster' ); ?></label>
                                 <div class="flex items-stretch gap-2">
-                                    <input type="text" id="ysp_key_id" name="key_id"
+                                    <input type="text" id="yoapsopo_key_id" name="key_id"
                                            class="w-full rounded-xl border border-slate-300 px-3 py-2"
                                            value="<?php echo esc_attr($opt['key_id'] ?? ''); ?>">
-                                    <button type="button" class="button" data-clip="#ysp_key_id">
+                                    <button type="button" class="button" data-clip="#yoapsopo_key_id">
                                         <span class="dashicons dashicons-admin-page" style="vertical-align:middle"></span> <?php esc_html_e( 'Copy', 'yoapy-social-poster' ); ?>
                                     </button>
                                 </div>
@@ -97,13 +97,13 @@ $resolved = array(
                             <div>
                                 <label class="block text-sm font-medium text-slate-700 mb-1"><?php esc_html_e( 'Secret (hex)', 'yoapy-social-poster' ); ?></label>
                                 <div class="flex items-stretch gap-2">
-                                    <input type="password" id="ysp_secret" name="secret"
+                                    <input type="password" id="yoapsopo_secret" name="secret"
                                            class="w-full rounded-xl border border-slate-300 px-3 py-2"
                                            value="<?php echo esc_attr($opt['secret'] ?? ''); ?>">
-                                    <button type="button" class="button" id="ysp_secret_toggle">
+                                    <button type="button" class="button" id="yoapsopo_secret_toggle">
                                         <span class="dashicons dashicons-visibility" style="vertical-align:middle"></span> <?php esc_html_e( 'Show', 'yoapy-social-poster' ); ?>
                                     </button>
-                                    <button type="button" class="button" data-clip="#ysp_secret">
+                                    <button type="button" class="button" data-clip="#yoapsopo_secret">
                                         <span class="dashicons dashicons-admin-page" style="vertical-align:middle"></span> <?php esc_html_e( 'Copy', 'yoapy-social-poster' ); ?>
                                     </button>
                                 </div>
@@ -128,9 +128,9 @@ $resolved = array(
                 </div>
                 <div class="px-5 py-5">
                     <form method="post" class="space-y-5">
-                        <?php wp_nonce_field('ysp_save_settings','ysp_nonce_save'); ?>
+                        <?php wp_nonce_field('yoapsopo_save_settings','yoapsopo_nonce_save'); ?>
                         <!-- Form identifier for accounts -->
-                        <input type="hidden" name="ysp_save_settings" value="1"/>
+                        <input type="hidden" name="yoapsopo_save_settings" value="1"/>
                         <input type="hidden" name="form_type" value="accounts"/>
 
                         <div>
@@ -236,8 +236,8 @@ $resolved = array(
                 </div>
                 <div class="px-5 py-5">
                     <form method="post" class="flex items-center gap-3">
-                        <?php wp_nonce_field('ysp_ping','ysp_nonce_ping'); ?>
-                        <button type="submit" class="button" name="ysp_ping" value="1">
+                        <?php wp_nonce_field('yoapsopo_ping','yoapsopo_nonce_ping'); ?>
+                        <button type="submit" class="button" name="yoapsopo_ping" value="1">
                             <span class="dashicons dashicons-controls-repeat" style="vertical-align:middle"></span> <?php esc_html_e( 'Test connection', 'yoapy-social-poster' ); ?>
                         </button>
                         <?php if ( !$hasKeys ): ?>
@@ -291,54 +291,7 @@ $resolved = array(
 </div>
 
 <!-- Avisos do WP: garantir contraste e herança de cor -->
-<style>
-    .wrap .notice { border-radius:12px; padding:12px 14px; }
-    .wrap .notice p { margin:0; color:inherit !important; }
-    .wrap .notice a { color:inherit; text-decoration: underline; }
-    .wrap .notice-success { background:#ecfdf5; border-color:#a7f3d0; color:#065f46; }
-    .wrap .notice-warning { background:#fffbeb; border-color:#fcd34d; color:#92400e; }
-    .wrap .notice-error { background:#fef2f2; border-color:#fecaca; color:#991b1b; }
-    .wrap .is-dismissible .notice-dismiss { filter: invert(0); }
-</style>
-
-<!-- Scripts pequenos: revelar/copiar + toast -->
-<script>
-    (function(){
-        // Toggle secret
-        var btn = document.getElementById('ysp_secret_toggle');
-        var inp = document.getElementById('ysp_secret');
-        if(btn && inp){
-            btn.addEventListener('click', function(){
-                var showing = inp.type === 'text';
-                inp.type = showing ? 'password' : 'text';
-                btn.innerHTML = (showing
-                    ? '<span class="dashicons dashicons-visibility"></span> ' + <?php echo wp_json_encode( __( 'Show', 'yoapy-social-poster' ) ); ?>
-                    : '<span class="dashicons dashicons-hidden"></span> ' + <?php echo wp_json_encode( __( 'Hide', 'yoapy-social-poster' ) ); ?>);
-            });
-        }
-
-        // Copy helpers
-        function toast(msg){
-            var t = document.createElement('div');
-            t.className = 'fixed z-50 bottom-5 right-5 bg-slate-900 text-white text-sm rounded-lg px-3 py-2 shadow-lg transition-all';
-            t.textContent = msg;
-            document.body.appendChild(t);
-            setTimeout(function(){ t.style.opacity='0'; t.style.transform='translateY(6px)'; }, 1400);
-            setTimeout(function(){ t.remove(); }, 1800);
-        }
-        document.querySelectorAll('[data-clip]').forEach(function(btn){
-            btn.addEventListener('click', function(){
-                var sel = btn.getAttribute('data-clip');
-                var el = document.querySelector(sel);
-                if(!el) return;
-                if (el.select) el.select();
-                try {
-                    navigator.clipboard.writeText(el.value || '');
-                    toast(<?php echo wp_json_encode( __( 'Copied!', 'yoapy-social-poster' ) ); ?>);
-                } catch(e){
-                    toast(<?php echo wp_json_encode( __( 'Copy manually.', 'yoapy-social-poster' ) ); ?>);
-                }
-            });
-        });
-    })();
-</script>
+<?php
+include 'styles-settings.php';
+include 'script-settings.php';
+?>

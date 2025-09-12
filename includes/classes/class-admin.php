@@ -16,12 +16,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  */
-class YSP_Admin {
+class YOAPSOPO_Admin {
 
     /**
      * Class instance
      *
-     * @var YSP_Admin
+     * @var YOAPSOPO_Admin
      * @since 1.0.0
      */
     private static $instance = null;
@@ -29,7 +29,7 @@ class YSP_Admin {
     /**
      * Get class instance
      *
-     * @return YSP_Admin
+     * @return YOAPSOPO_Admin
      * @since 1.0.0
      */
     public static function get_instance() {
@@ -65,7 +65,7 @@ class YSP_Admin {
      */
     public function add_metabox() {
         add_meta_box(
-            'ysp_metabox',
+            'yoapsopo_metabox',
             __( 'YoApy Social Poster', 'yoapy-social-poster' ),
             array( $this, 'render_metabox' ),
             'post',
@@ -86,20 +86,20 @@ class YSP_Admin {
             return;
         }
 
-        $has_keys = YSP_Client::has_keys();
+        $has_keys = YOAPSOPO_Client::has_keys();
 
         // Nonce for security
-        wp_nonce_field( 'ysp_metabox', 'ysp_nonce' );
+        wp_nonce_field( 'yoapsopo_metabox', 'yoapsopo_nonce' );
 
         // Get meta values
-        $enabled = get_post_meta( $post->ID, '_ysp_enabled', true );
-        $type = get_post_meta( $post->ID, '_ysp_type', true );
-        $networks = (array) get_post_meta( $post->ID, '_ysp_networks', true );
-        $text = get_post_meta( $post->ID, '_ysp_text', true );
-        $image = get_post_meta( $post->ID, '_ysp_image', true );
-        $video = get_post_meta( $post->ID, '_ysp_video', true );
-        $article = get_post_meta( $post->ID, '_ysp_article', true );
-        $when = get_post_meta( $post->ID, '_ysp_when', true );
+        $enabled = get_post_meta( $post->ID, '_yoapsopo_enabled', true );
+        $type = get_post_meta( $post->ID, '_yoapsopo_type', true );
+        $networks = (array) get_post_meta( $post->ID, '_yoapsopo_networks', true );
+        $text = get_post_meta( $post->ID, '_yoapsopo_text', true );
+        $image = get_post_meta( $post->ID, '_yoapsopo_image', true );
+        $video = get_post_meta( $post->ID, '_yoapsopo_video', true );
+        $article = get_post_meta( $post->ID, '_yoapsopo_article', true );
+        $when = get_post_meta( $post->ID, '_yoapsopo_when', true );
 
         // Convert timestamp to local datetime for input
         $when_local = '';
@@ -110,18 +110,18 @@ class YSP_Admin {
         // Enqueue required scripts and styles
         wp_enqueue_media();
         wp_enqueue_script(
-            'ysp-admin',
-            YSP_PLUGIN_URL . 'admin/js/ysp-admin.js',
+            'yoapsopo-admin',
+            YOAPSOPO_PLUGIN_URL . 'admin/js/yoapsopo-admin.js',
             array( 'jquery' ),
-            YSP_VERSION,
+            YOAPSOPO_VERSION,
             true
         );
         wp_localize_script(
-            'ysp-admin',
-            'YSP',
+            'yoapsopo-admin',
+            'YOAPSOPO',
             array(
                 'ajax'    => admin_url( 'admin-ajax.php' ),
-                'nonce'   => wp_create_nonce( 'ysp_metabox' ),
+                'nonce'   => wp_create_nonce( 'yoapsopo_metabox' ),
                 'hasKeys' => $has_keys,
                 'i18n'    => array(
                     'chooseMedia'   => __( 'Choose Media', 'yoapy-social-poster' ),
@@ -138,14 +138,14 @@ class YSP_Admin {
             )
         );
         wp_enqueue_style(
-            'ysp-admin',
-            YSP_PLUGIN_URL . 'admin/css/ysp-admin.css',
+            'yoapsopo-admin',
+            YOAPSOPO_PLUGIN_URL . 'admin/css/yoapsopo-admin.css',
             array(),
-            YSP_VERSION
+            YOAPSOPO_VERSION
         );
 
         // Include metabox template
-        include YSP_PLUGIN_DIR . 'admin/views/metabox.php';
+        include YOAPSOPO_PLUGIN_DIR . 'admin/views/metabox.php';
     }
 
     /**
@@ -156,13 +156,13 @@ class YSP_Admin {
      */
     public function save_post_meta( $post_id ) {
         // Security checks
-        if ( ! isset( $_POST['ysp_nonce'] ) ) {
+        if ( ! isset( $_POST['yoapsopo_nonce'] ) ) {
             return;
         }
 
         // Unslash + sanitize nonce before verifying (fixes MissingUnslash/InputNotSanitized)
-        $nonce = sanitize_text_field( wp_unslash( $_POST['ysp_nonce'] ) );
-        if ( ! wp_verify_nonce( $nonce, 'ysp_metabox' ) ) {
+        $nonce = sanitize_text_field( wp_unslash( $_POST['yoapsopo_nonce'] ) );
+        if ( ! wp_verify_nonce( $nonce, 'yoapsopo_metabox' ) ) {
             return;
         }
 
@@ -181,35 +181,35 @@ class YSP_Admin {
         // Save meta fields (always unslash first, then sanitize)
 
         // Checkbox
-        $enabled = isset( $_POST['ysp_enabled'] ) ? '1' : '';
-        update_post_meta( $post_id, '_ysp_enabled', $enabled );
+        $enabled = isset( $_POST['yoapsopo_enabled'] ) ? '1' : '';
+        update_post_meta( $post_id, '_yoapsopo_enabled', $enabled );
 
         // Type
-        $type = isset( $_POST['ysp_type'] ) ? sanitize_text_field( wp_unslash( $_POST['ysp_type'] ) ) : 'image';
-        update_post_meta( $post_id, '_ysp_type', $type );
+        $type = isset( $_POST['yoapsopo_type'] ) ? sanitize_text_field( wp_unslash( $_POST['yoapsopo_type'] ) ) : 'image';
+        update_post_meta( $post_id, '_yoapsopo_type', $type );
 
         // Networks (array) — sanitize on the same line to satisfy the sniff
-        $networks_sanitized = isset( $_POST['ysp_networks'] )
-            ? array_map( 'sanitize_text_field', (array) wp_unslash( $_POST['ysp_networks'] ) )
+        $networks_sanitized = isset( $_POST['yoapsopo_networks'] )
+            ? array_map( 'sanitize_text_field', (array) wp_unslash( $_POST['yoapsopo_networks'] ) )
             : array();
-        update_post_meta( $post_id, '_ysp_networks', $networks_sanitized );
+        update_post_meta( $post_id, '_yoapsopo_networks', $networks_sanitized );
 
         // Text (allow safe HTML)
-        $text = isset( $_POST['ysp_text'] ) ? wp_kses_post( wp_unslash( $_POST['ysp_text'] ) ) : '';
-        update_post_meta( $post_id, '_ysp_text', $text );
+        $text = isset( $_POST['yoapsopo_text'] ) ? wp_kses_post( wp_unslash( $_POST['yoapsopo_text'] ) ) : '';
+        update_post_meta( $post_id, '_yoapsopo_text', $text );
 
         // URLs
-        $image = isset( $_POST['ysp_image'] ) ? esc_url_raw( wp_unslash( $_POST['ysp_image'] ) ) : '';
-        update_post_meta( $post_id, '_ysp_image', $image );
+        $image = isset( $_POST['yoapsopo_image'] ) ? esc_url_raw( wp_unslash( $_POST['yoapsopo_image'] ) ) : '';
+        update_post_meta( $post_id, '_yoapsopo_image', $image );
 
-        $video = isset( $_POST['ysp_video'] ) ? esc_url_raw( wp_unslash( $_POST['ysp_video'] ) ) : '';
-        update_post_meta( $post_id, '_ysp_video', $video );
+        $video = isset( $_POST['yoapsopo_video'] ) ? esc_url_raw( wp_unslash( $_POST['yoapsopo_video'] ) ) : '';
+        update_post_meta( $post_id, '_yoapsopo_video', $video );
 
-        $article = isset( $_POST['ysp_article'] ) ? esc_url_raw( wp_unslash( $_POST['ysp_article'] ) ) : '';
-        update_post_meta( $post_id, '_ysp_article', $article );
+        $article = isset( $_POST['yoapsopo_article'] ) ? esc_url_raw( wp_unslash( $_POST['yoapsopo_article'] ) ) : '';
+        update_post_meta( $post_id, '_yoapsopo_article', $article );
 
         // Handle scheduling (datetime-local string)
-        $when_input = isset( $_POST['ysp_when'] ) ? sanitize_text_field( wp_unslash( $_POST['ysp_when'] ) ) : '';
+        $when_input = isset( $_POST['yoapsopo_when'] ) ? sanitize_text_field( wp_unslash( $_POST['yoapsopo_when'] ) ) : '';
         $when_input = trim( $when_input );
 
         if ( '' !== $when_input ) {
@@ -217,21 +217,21 @@ class YSP_Admin {
                 $timezone = wp_timezone();
                 // Expecting format "Y-m-d\TH:i"
                 $datetime = new DateTimeImmutable( $when_input, $timezone );
-                update_post_meta( $post_id, '_ysp_when', $datetime->getTimestamp() );
+                update_post_meta( $post_id, '_yoapsopo_when', $datetime->getTimestamp() );
             } catch ( Exception $e ) {
                 // Invalid date format, ignore
-                delete_post_meta( $post_id, '_ysp_when' );
+                delete_post_meta( $post_id, '_yoapsopo_when' );
             }
         } else {
-            delete_post_meta( $post_id, '_ysp_when' );
+            delete_post_meta( $post_id, '_yoapsopo_when' );
         }
     }
 
     /**
      * Legacy instance method for backward compatibility
      *
-     * @deprecated 1.6.0 Use YSP_Admin::get_instance() instead.
-     * @return YSP_Admin
+     * @deprecated 1.6.0 Use YOAPSOPO_Admin::get_instance() instead.
+     * @return YOAPSOPO_Admin
      */
     public static function instance() {
         return self::get_instance();

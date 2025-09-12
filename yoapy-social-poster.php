@@ -24,23 +24,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Define plugin constantss
-if ( ! defined( 'YSP_VERSION' ) ) {
-    define( 'YSP_VERSION', '1.6.0' );
+if ( ! defined( 'YOAPSOPO_VERSION' ) ) {
+    define( 'YOAPSOPO_VERSION', '1.6.0' );
 }
-if ( ! defined( 'YSP_PLUGIN_FILE' ) ) {
-    define( 'YSP_PLUGIN_FILE', __FILE__ );
+if ( ! defined( 'YOAPSOPO_PLUGIN_FILE' ) ) {
+    define( 'YOAPSOPO_PLUGIN_FILE', __FILE__ );
 }
-if ( ! defined( 'YSP_PLUGIN_DIR' ) ) {
-    define( 'YSP_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+if ( ! defined( 'YOAPSOPO_PLUGIN_DIR' ) ) {
+    define( 'YOAPSOPO_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 }
-if ( ! defined( 'YSP_PLUGIN_URL' ) ) {
-    define( 'YSP_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+if ( ! defined( 'YOAPSOPO_PLUGIN_URL' ) ) {
+    define( 'YOAPSOPO_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 }
-if ( ! defined( 'YSP_SLUG' ) ) {
-    define( 'YSP_SLUG', 'yoapy-social-poster' );
+if ( ! defined( 'YOAPSOPO_SLUG' ) ) {
+    define( 'YOAPSOPO_SLUG', 'yoapy-social-poster' );
 }
-if ( ! defined( 'YSP_TEXT_DOMAIN' ) ) {
-    define( 'YSP_TEXT_DOMAIN', 'yoapy-social-poster' );
+if ( ! defined( 'YOAPSOPO_TEXT_DOMAIN' ) ) {
+    define( 'YOAPSOPO_TEXT_DOMAIN', 'yoapy-social-poster' );
 }
 
 /**
@@ -89,8 +89,8 @@ final class YoApy_Social_Poster {
      * @since 1.0.0
      */
     private function define_hooks() {
-        register_activation_hook( YSP_PLUGIN_FILE, array( $this, 'activate' ) );
-        register_deactivation_hook( YSP_PLUGIN_FILE, array( $this, 'deactivate' ) );
+        register_activation_hook( YOAPSOPO_PLUGIN_FILE, array( $this, 'activate' ) );
+        register_deactivation_hook( YOAPSOPO_PLUGIN_FILE, array( $this, 'deactivate' ) );
         add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ) );
         add_action( 'init', array( $this, 'load_textdomain' ) );
         add_filter( 'cron_schedules', array( $this, 'add_cron_schedules' ) );
@@ -105,7 +105,7 @@ final class YoApy_Social_Poster {
 //        load_plugin_textdomain(
 //            'yoapy-social-poster',
 //            false,
-//            dirname( plugin_basename( YSP_PLUGIN_FILE ) ) . '/languages/'
+//            dirname( plugin_basename( YOAPSOPO_PLUGIN_FILE ) ) . '/languages/'
 //        );
     }
 
@@ -116,11 +116,11 @@ final class YoApy_Social_Poster {
      */
     private function includes() {
         // Core classes
-        require_once YSP_PLUGIN_DIR . 'includes/classes/class-logger.php';
-        require_once YSP_PLUGIN_DIR . 'includes/classes/class-client.php';
-        require_once YSP_PLUGIN_DIR . 'includes/classes/class-planner.php';
-        require_once YSP_PLUGIN_DIR . 'includes/classes/class-cron.php';
-        require_once YSP_PLUGIN_DIR . 'includes/classes/class-admin.php';
+        require_once YOAPSOPO_PLUGIN_DIR . 'includes/classes/class-logger.php';
+        require_once YOAPSOPO_PLUGIN_DIR . 'includes/classes/class-client.php';
+        require_once YOAPSOPO_PLUGIN_DIR . 'includes/classes/class-planner.php';
+        require_once YOAPSOPO_PLUGIN_DIR . 'includes/classes/class-cron.php';
+        require_once YOAPSOPO_PLUGIN_DIR . 'includes/classes/class-admin.php';
     }
 
     /**
@@ -131,10 +131,10 @@ final class YoApy_Social_Poster {
     private function init() {
         // Initialize components
         if ( is_admin() ) {
-            YSP_Admin::get_instance();
+            YOAPSOPO_Admin::get_instance();
         }
-        YSP_Planner::get_instance();
-        YSP_Cron::get_instance();
+        YOAPSOPO_Planner::get_instance();
+        YOAPSOPO_Cron::get_instance();
     }
 
     /**
@@ -144,24 +144,24 @@ final class YoApy_Social_Poster {
      */
     public function activate() {
         // Clear any existing cron jobs
-        $timestamp = wp_next_scheduled( 'ysp_tick' );
+        $timestamp = wp_next_scheduled( 'yoapsopo_tick' );
         if ( $timestamp ) {
-            wp_unschedule_event( $timestamp, 'ysp_tick' );
+            wp_unschedule_event( $timestamp, 'yoapsopo_tick' );
         }
 
-        $timestamp = wp_next_scheduled( 'ysp_check_task_results' );
+        $timestamp = wp_next_scheduled( 'yoapsopo_check_task_results' );
         if ( $timestamp ) {
-            wp_unschedule_event( $timestamp, 'ysp_check_task_results' );
+            wp_unschedule_event( $timestamp, 'yoapsopo_check_task_results' );
         }
 
         // Schedule cron job every 30 seconds
-        wp_schedule_event( time() + 30, 'ysp_30sec', 'ysp_tick' );
+        wp_schedule_event( time() + 30, 'yoapsopo_30sec', 'yoapsopo_tick' );
 
         // Schedule task result checking every 30 seconds for faster updates
-        wp_schedule_event( time() + 30, 'ysp_30sec', 'ysp_check_task_results' );
+        wp_schedule_event( time() + 30, 'yoapsopo_30sec', 'yoapsopo_check_task_results' );
 
         // Log activation
-        YSP_Logger::log( 'plugin_activated', array( 'version' => YSP_VERSION ) );
+        YOAPSOPO_Logger::log( 'plugin_activated', array( 'version' => YOAPSOPO_VERSION ) );
 
         // Flush rewrite rules
         flush_rewrite_rules();
@@ -174,19 +174,19 @@ final class YoApy_Social_Poster {
      */
     public function deactivate() {
         // Clear scheduled cron jobs
-        $timestamp = wp_next_scheduled( 'ysp_tick' );
+        $timestamp = wp_next_scheduled( 'yoapsopo_tick' );
         if ( $timestamp ) {
-            wp_unschedule_event( $timestamp, 'ysp_tick' );
+            wp_unschedule_event( $timestamp, 'yoapsopo_tick' );
         }
 
         // Clear task result checking cron job
-        $timestamp = wp_next_scheduled( 'ysp_check_task_results' );
+        $timestamp = wp_next_scheduled( 'yoapsopo_check_task_results' );
         if ( $timestamp ) {
-            wp_unschedule_event( $timestamp, 'ysp_check_task_results' );
+            wp_unschedule_event( $timestamp, 'yoapsopo_check_task_results' );
         }
 
         // Log deactivation
-        YSP_Logger::log( 'plugin_deactivated', array( 'version' => YSP_VERSION ) );
+        YOAPSOPO_Logger::log( 'plugin_deactivated', array( 'version' => YOAPSOPO_VERSION ) );
 
         // Flush rewrite rules
         flush_rewrite_rules();
@@ -198,7 +198,7 @@ final class YoApy_Social_Poster {
      * @since 1.0.0
      */
     public function plugins_loaded() {
-        YSP_Logger::log( 'plugins_loaded', array( 'version' => YSP_VERSION ) );
+        YOAPSOPO_Logger::log( 'plugins_loaded', array( 'version' => YOAPSOPO_VERSION ) );
     }
 
     /**
@@ -209,15 +209,15 @@ final class YoApy_Social_Poster {
      * @since 1.0.0
      */
     public function add_cron_schedules( $schedules ) {
-        $schedules['ysp_2min'] = array(
+        $schedules['yoapsopo_2min'] = array(
             'interval' => 120,
             'display'  => __( 'Every 2 minutes (YoApy)', 'yoapy-social-poster' )
         );
-        $schedules['ysp_1min'] = array(
+        $schedules['yoapsopo_1min'] = array(
             'interval' => 60,
             'display'  => __( 'Every 1 minute (YoApy)', 'yoapy-social-poster' )
         );
-        $schedules['ysp_30sec'] = array(
+        $schedules['yoapsopo_30sec'] = array(
             'interval' => 30,
             'display'  => __( 'Every 30 seconds (YoApy)', 'yoapy-social-poster' )
         );
@@ -260,15 +260,15 @@ yoapy_social_poster();
  * @deprecated 1.6.0 Use YoApy_Social_Poster::get_upload_dir() instead.
  * @return string Upload directory path.
  */
-function ysp_upload_dir() {
+function yoapsopo_upload_dir() {
     return YoApy_Social_Poster::get_upload_dir();
 }
 
 
 // CSS comum do admin (Tailwind compilado) — carrega nas páginas do plugin e no editor de post
-add_action( 'admin_enqueue_scripts', 'ysp_enqueue_common_admin_assets' );
+add_action( 'admin_enqueue_scripts', 'yoapsopo_enqueue_common_admin_assets' );
 
-function ysp_enqueue_common_admin_assets( $hook_suffix ) {
+function yoapsopo_enqueue_common_admin_assets( $hook_suffix ) {
     // Descobre a tela atual
     $screen = function_exists('get_current_screen') ? get_current_screen() : null;
 
@@ -277,19 +277,19 @@ function ysp_enqueue_common_admin_assets( $hook_suffix ) {
     if ( $screen ) {
         // Cobre variações de id/base (toplevel_page_*, *_page_*)
         $is_plugin_screen =
-            ( false !== strpos( $screen->id,  'ysp_planner'  ) ) ||
-            ( false !== strpos( $screen->id,  'ysp_settings' ) ) ||
-            ( false !== strpos( $screen->id,  'ysp_logs'     ) ) ||
-            ( false !== strpos( $screen->base, 'ysp_planner'  ) ) ||
-            ( false !== strpos( $screen->base, 'ysp_settings' ) ) ||
-            ( false !== strpos( $screen->base, 'ysp_logs'     ) );
+            ( false !== strpos( $screen->id,  'yoapsopo_planner'  ) ) ||
+            ( false !== strpos( $screen->id,  'yoapsopo_settings' ) ) ||
+            ( false !== strpos( $screen->id,  'yoapsopo_logs'     ) ) ||
+            ( false !== strpos( $screen->base, 'yoapsopo_planner'  ) ) ||
+            ( false !== strpos( $screen->base, 'yoapsopo_settings' ) ) ||
+            ( false !== strpos( $screen->base, 'yoapsopo_logs'     ) );
     }
 
     // Telas do editor de post onde o metabox aparece
     $is_post_editor = false;
     if ( $screen ) {
         // Por padrão, aplicamos no post type "post". Amplie via filtro se usar CPT.
-        $post_types = apply_filters( 'ysp_tailwind_post_types', array( 'post' ) );
+        $post_types = apply_filters( 'yoapsopo_tailwind_post_types', array( 'post' ) );
 
         // No editor clássico e no Gutenberg, $screen->base costuma ser 'post'
         if ( 'post' === $screen->base && ! empty( $screen->post_type ) && in_array( $screen->post_type, $post_types, true ) ) {
@@ -302,14 +302,14 @@ function ysp_enqueue_common_admin_assets( $hook_suffix ) {
     }
 
     // Caminhos do CSS compilado
-    $base_dir = defined('YSP_PLUGIN_DIR') ? YSP_PLUGIN_DIR : plugin_dir_path( __FILE__ );
-    $base_url = defined('YSP_PLUGIN_URL') ? YSP_PLUGIN_URL : plugin_dir_url( __FILE__ );
+    $base_dir = defined('YOAPSOPO_PLUGIN_DIR') ? YOAPSOPO_PLUGIN_DIR : plugin_dir_path( __FILE__ );
+    $base_url = defined('YOAPSOPO_PLUGIN_URL') ? YOAPSOPO_PLUGIN_URL : plugin_dir_url( __FILE__ );
 
     $css_path = $base_dir . 'assets/css/admin.css';
     $css_url  = $base_url . 'assets/css/admin.css';
-    $ver      = file_exists( $css_path ) ? filemtime( $css_path ) : ( defined('YSP_VERSION') ? YSP_VERSION : false );
+    $ver      = file_exists( $css_path ) ? filemtime( $css_path ) : ( defined('YOAPSOPO_VERSION') ? YOAPSOPO_VERSION : false );
 
-    wp_enqueue_style( 'ysp-admin', $css_url, array(), $ver );
+    wp_enqueue_style( 'yoapsopo-admin', $css_url, array(), $ver );
 }
 
 
