@@ -31,7 +31,7 @@
     }
 
     /* Enhanced character counter with live updates */
-    #ysp_char {
+    #yoapsopo_char {
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         padding: 6px 12px;
         border-radius: 15px;
@@ -52,17 +52,17 @@
     }
 
     /* Enhanced dropzone interactions */
-    .ysp-dz {
+    .yoapsopo-dz {
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .ysp-dz:hover {
+    .yoapsopo-dz:hover {
         transform: translateY(-2px);
         border-color: rgba(59, 130, 246, 0.4);
         background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(59, 130, 246, 0.02));
     }
 
-    .ysp-dz.dragover {
+    .yoapsopo-dz.dragover {
         transform: translateY(-4px) scale(1.02);
         border-color: rgba(59, 130, 246, 0.6);
         background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.05));

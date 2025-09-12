@@ -5,13 +5,13 @@
  * @since 1.6.0
  */
 jQuery(document).ready(function ($) {
-    const ajax_url = ysp_ajax_object.ajax_url;
-    const nonce = ysp_ajax_object.nonce;
-    const i18n = ysp_ajax_object.i18n;
+    const ajax_url = yoapsopo_ajax_object.ajax_url;
+    const nonce = yoapsopo_ajax_object.nonce;
+    const i18n = yoapsopo_ajax_object.i18n;
 
     // --- Notificações (Toast) ---
     function toast(msg, isSuccess = true) {
-        const toastId = 'ysp-toast-' + Date.now();
+        const toastId = 'yoapsopo-toast-' + Date.now();
         const toastHTML = `<div id="${toastId}" class="fixed z-[99999] top-5 right-5 rounded-xl px-4 py-3 shadow-lg text-sm text-white transition-all animate-slideIn" style="background: ${isSuccess ? 'linear-gradient(135deg, #22c55e, #16a34a)' : 'linear-gradient(135deg, #ef4444, #dc2626)'};"><span class="dashicons ${isSuccess ? 'dashicons-yes-alt' : 'dashicons-warning'}" style="vertical-align: middle; margin-right: 8px;"></span>${msg}</div>`;
         $('body').append(toastHTML);
         setTimeout(() => {
@@ -23,9 +23,9 @@ jQuery(document).ready(function ($) {
 
     // --- Renderização Dinâmica da Lista de Tarefas (APÓS AÇÕES AJAX) ---
     function renderTaskList(tasks) {
-        const tableBody = $('#ysp_tasks_tbody');
-        const cardsContainer = $('#ysp_tasks_cards');
-        const placeholder = $('#ysp-no-tasks-placeholder');
+        const tableBody = $('#yoapsopo_tasks_tbody');
+        const cardsContainer = $('#yoapsopo_tasks_cards');
+        const placeholder = $('#yoapsopo-no-tasks-placeholder');
 
         tableBody.empty();
         cardsContainer.empty();
@@ -39,13 +39,13 @@ jQuery(document).ready(function ($) {
         tasks.forEach(task => {
             const networksHtml = (task.networks || []).map(n => {
                 const networkName = n.charAt(0).toUpperCase() + n.slice(1);
-                return `<span class="ysp-net-chip ysp-net--${n}">${networkName}</span>`;
+                return `<span class="yoapsopo-net-chip yoapsopo-net--${n}">${networkName}</span>`;
             }).join('');
 
             const resultsHtml = task.results ? Object.entries(task.results).map(([net, res]) => {
                 const networkName = net.charAt(0).toUpperCase() + net.slice(1);
-                if (res && res.permalink) return `<a href="${res.permalink}" target="_blank" class="ysp-result-link">${networkName}</a>`;
-                if (res && res.success === false) return `<div class="ysp-result-error" title="${res.message || ''}">${networkName}: Error</div>`;
+                if (res && res.permalink) return `<a href="${res.permalink}" target="_blank" class="yoapsopo-result-link">${networkName}</a>`;
+                if (res && res.success === false) return `<div class="yoapsopo-result-error" title="${res.message || ''}">${networkName}: Error</div>`;
                 return '';
             }).join('') : '';
 
@@ -92,15 +92,37 @@ jQuery(document).ready(function ($) {
                         ${dateTimeInfo}
                     </td>
                     <td class="px-4 py-3 align-top"><div class="flex flex-wrap gap-1">${networksHtml}</div></td>
-                    <td class="px-4 py-3 align-top"><span class="ysp-status-badge ysp-status--${task.status}">${task.status}</span><div class="mt-1.5 space-y-1 text-xs">${resultsHtml}</div></td>
+                    <td class="px-4 py-3 align-top"><span class="yoapsopo-status-badge yoapsopo-status--${task.status}">${task.status}</span><div class="mt-1.5 space-y-1 text-xs">${resultsHtml}</div></td>
                     <td class="px-4 py-3 align-top">
                         <div class="flex items-center gap-2">
-                            <button class="button ysp-act" data-act="send"><span class="dashicons dashicons-migrate"></span> ${i18n.send || 'Post'}</button>
-                            <button class="button button-link-delete ysp-act" data-act="delete"><span class="dashicons dashicons-trash"></span> ${i18n.delete || 'Delete'}</button>
+                            <button class="button button-primary !px-4 !py-2 !h-auto !text-base yoapsopo-act" data-act="send"><span class="dashicons dashicons-migrate"></span> ${i18n.send || 'Post'}</button>
+                            <button class="button button-danger !px-4 !py-2 !h-auto !text-base button-link-delete yoapsopo-act" data-act="delete"><span class="dashicons dashicons-trash"></span> ${i18n.delete || 'Delete'}</button>
                         </div>
                     </td>
                 </tr>`;
             tableBody.append(tableRow);
+
+            // Renderiza o card para mobile
+            const cardHtml = `
+                <div data-id="${task.id}" class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                    <div class="flex flex-wrap items-start justify-between gap-2">
+                        <div>
+                            <div class="font-medium text-slate-800">${task.title || '—'}</div>
+                            <div class="text-xs text-slate-500">${task.type}</div>
+                            ${dateTimeInfo}
+                        </div>
+                        <span class="yoapsopo-status-badge yoapsopo-status--${task.status}">${task.status}</span>
+                    </div>
+                    <div class="mt-3 flex flex-wrap gap-1">
+                        ${networksHtml}
+                    </div>
+                    ${resultsHtml ? `<div class="mt-2 space-y-1 text-xs">${resultsHtml}</div>` : ''}
+                    <div class="mt-3 flex flex-wrap gap-2">
+                        <button class="button button-primary !px-4 !py-2 !h-auto !text-base yoapsopo-act" data-act="send"><span class="dashicons dashicons-migrate"></span> ${i18n.send || 'Post'}</button>
+                        <button class="button button-danger !px-4 !py-2 !h-auto !text-base button-link-delete yoapsopo-act" data-act="delete"><span class="dashicons dashicons-trash"></span> ${i18n.delete || 'Delete'}</button>
+                    </div>
+                </div>`;
+            cardsContainer.append(cardHtml);
         });
     }
 
@@ -108,27 +130,27 @@ jQuery(document).ready(function ($) {
     function pollTaskStatus() {
         // Check if there are any tasks that are processing or scheduled
         // If not, we don't need to poll
-        const tasks = $('#ysp_tasks_tbody tr');
+        const tasks = $('#yoapsopo_tasks_tbody tr');
         let needsPolling = false;
-        
+
         tasks.each(function() {
-            const status = $(this).find('.ysp-status-badge').text().trim().toLowerCase();
+            const status = $(this).find('.yoapsopo-status-badge').text().trim().toLowerCase();
             if (status === 'processing' || status === 'scheduled') {
                 needsPolling = true;
                 return false; // break the loop
             }
         });
-        
+
         // If no tasks need polling, skip this round
         if (!needsPolling) {
             return;
         }
-        
+
         $.ajax({
             url: ajax_url,
             type: 'POST',
             data: {
-                action: 'ysp_get_tasks_ajax',
+                action: 'yoapsopo_get_tasks_ajax',
                 nonce: nonce
             },
             success: function(res) {
@@ -147,15 +169,15 @@ jQuery(document).ready(function ($) {
 
     // Start polling every 2 seconds (instead of 5) for more responsive updates
     setInterval(pollTaskStatus, 2000);
-    
+
     // Also poll immediately when the page loads to get the latest status
     $(document).ready(function() {
         setTimeout(pollTaskStatus, 1000);
     });
 
     // --- Submissão do Formulário via AJAX ---
-    const form = $('#ysp_form_task');
-    const saveButton = $('#ysp_btn_save');
+    const form = $('#yoapsopo_form_task');
+    const saveButton = $('#yoapsopo_btn_save');
     const originalButtonHtml = saveButton.html();
 
     form.on('submit', function (e) {
@@ -163,7 +185,7 @@ jQuery(document).ready(function ($) {
         saveButton.prop('disabled', true).html(`<span class="dashicons dashicons-update animate-spin mr-2"></span> ${i18n.saving}`);
 
         const formData = new FormData(this);
-        formData.append('action', 'ysp_save_task_ajax');
+        formData.append('action', 'yoapsopo_save_task_ajax');
         formData.append('nonce', nonce);
 
         $.ajax({
@@ -172,7 +194,7 @@ jQuery(document).ready(function ($) {
                 if (res.success) {
                     toast(i18n.taskSaved);
                     form[0].reset();
-                    $('#ysp_text').trigger('input');
+                    $('#yoapsopo_text').trigger('input');
                     renderTaskList(res.data.tasks); // Atualiza a lista dinamicamente
                 } else { throw new Error(res.data.message || i18n.error); }
             },
@@ -182,7 +204,7 @@ jQuery(document).ready(function ($) {
     });
 
     // --- Ações na Tabela de Tarefas (Publicar, Excluir) via AJAX ---
-    $('body').on('click', '.ysp-act', function(e) {
+    $('body').on('click', '.yoapsopo-act', function(e) {
         e.preventDefault();
         const button = $(this);
         const action = button.data('act');
@@ -193,7 +215,7 @@ jQuery(document).ready(function ($) {
         button.prop('disabled', true);
 
         $.ajax({
-            url: ajax_url, type: 'POST', data: { action: 'ysp_task_action', nonce: nonce, act: action, id: taskId },
+            url: ajax_url, type: 'POST', data: { action: 'yoapsopo_task_action', nonce: nonce, act: action, id: taskId },
             success: function(res) {
                 if (res.success) {
                     toast(i18n.actionSuccess);
@@ -204,4 +226,28 @@ jQuery(document).ready(function ($) {
             complete: () => button.prop('disabled', false)
         });
     });
+
+    // Initialize mobile cards with existing tasks on page load
+    // Fetch the initial tasks via AJAX to ensure we have complete data
+    function initializeTaskList() {
+        $.ajax({
+            url: ajax_url,
+            type: 'POST',
+            data: {
+                action: 'yoapsopo_get_tasks_ajax',
+                nonce: nonce
+            },
+            success: function(res) {
+                if (res.success && res.data && res.data.tasks) {
+                    renderTaskList(res.data.tasks);
+                }
+            },
+            error: function(xhr, status, error) {
+                console.log('Initialization error:', error);
+            }
+        });
+    }
+
+    // Initialize task list when the page loads
+    initializeTaskList();
 });

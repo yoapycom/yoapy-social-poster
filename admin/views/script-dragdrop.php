@@ -4,7 +4,7 @@
 ?>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const metaEl = document.getElementById('ysp_media_meta');
+        const metaEl = document.getElementById('yoapsopo_media_meta');
         if (!metaEl) return;
 
         const UPLOAD_URL = metaEl.dataset.uploadUrl;
@@ -24,7 +24,7 @@
         }
 
         async function uploadFile(file, dz) {
-            const progWrap = dz.querySelector('.ysp-dz-progress');
+            const progWrap = dz.querySelector('.yoapsopo-dz-progress');
             const progBar = progWrap ? progWrap.querySelector('span') : null;
             const targetInput = document.querySelector(dz.dataset.target);
 
@@ -73,8 +73,8 @@
             }
         }
 
-        document.querySelectorAll('.ysp-dz').forEach(dz => {
-            const fileInput = dz.querySelector('.ysp-dz-file');
+        document.querySelectorAll('.yoapsopo-dz').forEach(dz => {
+            const fileInput = dz.querySelector('.yoapsopo-dz-file');
             const accept = dz.dataset.accept || '*';
 
             const handleFile = (file) => {
@@ -91,7 +91,7 @@
                     fileInput.click();
                 }
             });
-            dz.querySelector('.ysp-dz-browse')?.addEventListener('click', () => fileInput.click());
+            dz.querySelector('.yoapsopo-dz-browse')?.addEventListener('click', () => fileInput.click());
             fileInput.addEventListener('change', () => handleFile(fileInput.files[0]));
 
             // Arrastar

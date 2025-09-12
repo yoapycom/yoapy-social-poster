@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  */
-class YSP_Logger {
+class YOAPSOPO_Logger {
     public static function file_path() {
         return trailingslashit( YoApy_Social_Poster::get_upload_dir() ) . 'log.jsonl';
     }

@@ -2,8 +2,8 @@
 
 <?php
 // ---------- helpers locais ----------
-function ysp_try_json($raw){ if(is_array($raw)) return $raw; $j=json_decode(is_string($raw)?$raw:'',true); return is_array($j)?$j:null; }
-function ysp_fmt_br($utcStr){
+function yoapsopo_try_json($raw){ if(is_array($raw)) return $raw; $j=json_decode(is_string($raw)?$raw:'',true); return is_array($j)?$j:null; }
+function yoapsopo_fmt_br($utcStr){
     // Convert "Y-m-d H:i:s" UTC to site timezone using WordPress date format
     try{
         $dt = DateTime::createFromFormat('Y-m-d H:i:s', $utcStr, new DateTimeZone('UTC'));
@@ -15,7 +15,7 @@ function ysp_fmt_br($utcStr){
         return esc_html( $dt->format($date_format . ' ' . $time_format) );
     }catch(Exception $e){ return esc_html($utcStr); }
 }
-function ysp_status_chip($status){
+function yoapsopo_status_chip($status){
     $map = array('complete'=>'success','processing'=>'warn','scheduled'=>'info','pending'=>'muted','error'=>'error');
     $kind = $map[$status] ?? 'muted';
     $icon = array(
@@ -25,9 +25,9 @@ function ysp_status_chip($status){
         'muted'=>'<span class="dashicons dashicons-minus"></span>',
         'error'=>'<span class="dashicons dashicons-dismiss"></span>',
     )[$kind];
-    return '<span class="ysp-chip ysp-chip--'.$kind.'">'.$icon.' '.esc_html($status).'</span>';
+    return '<span class="yoapsopo-chip yoapsopo-chip--'.$kind.'">'.$icon.' '.esc_html($status).'</span>';
 }
-function ysp_net_svg($net){
+function yoapsopo_net_svg($net){
     // SVGs simples inline (cores controladas por CSS da rede)
     $svg = array(
         'facebook'=>'<svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7h-2.3V12h2.3V9.8c0-2.3 1.4-3.6 3.5-3.6 1 0 2 .2 2 .2v2.2h-1.1c-1.1 0-1.5.7-1.5 1.4V12h2.6l-.4 2.9h-2.2v7A10 10 0 0 0 22 12"/></svg>',
@@ -37,11 +37,11 @@ function ysp_net_svg($net){
     );
     return $svg[$net] ?? '';
 }
-function ysp_net_chip($net){
+function yoapsopo_net_chip($net){
     $label = ucfirst($net);
-    return '<span class="ysp-net ysp-net--'.$net.'">'.ysp_net_svg($net).' <span>'.$label.'</span></span>';
+    return '<span class="yoapsopo-net yoapsopo-net--'.$net.'">'.yoapsopo_net_svg($net).' <span>'.$label.'</span></span>';
 }
-function ysp_links_from_result($body){
+function yoapsopo_links_from_result($body){
     $links = array();
     if (isset($body['data']) && is_array($body['data'])) {
         foreach ($body['data'] as $net=>$info) {
@@ -67,8 +67,8 @@ function ysp_links_from_result($body){
     </div>
 
     <form method="post" class="mb-4 flex items-center gap-2">
-        <?php wp_nonce_field('ysp_clear_logs'); ?>
-        <input type="hidden" name="ysp_clear_logs" value="1"/>
+        <?php wp_nonce_field('yoapsopo_clear_logs'); ?>
+        <input type="hidden" name="yoapsopo_clear_logs" value="1"/>
         <button class="button"><?php esc_html_e( 'Clear all', 'yoapy-social-poster' ); ?></button>
         <span class="text-slate-600"><?php
             /* translators: %s: the text "view details" wrapped in <em> tags. */
@@ -81,7 +81,7 @@ function ysp_links_from_result($body){
         $items = array();
         $shown = array('req_create_post_json','res_create_post_json','res_get_task_result','do_job_end');
 
-        foreach ( YSP_Logger::get_lines(1000) as $r ):
+        foreach ( YOAPSOPO_Logger::get_lines(1000) as $r ):
             $evt = $r['event'] ?? '';
             if ( ! in_array($evt, $shown, true) ) continue;
 
@@ -92,7 +92,7 @@ function ysp_links_from_result($body){
 
             if ($evt==='req_create_post_json'){
                 $title = __( 'Send', 'yoapy-social-poster' ) . ' → POST '.esc_html($data['endpoint'] ?? '/v1/posts');
-                $json  = $data['json'] ?? ysp_try_json($data['body_raw'] ?? '');
+                $json  = $data['json'] ?? yoapsopo_try_json($data['body_raw'] ?? '');
                 $nets  = (isset($json['account_ids']) && is_array($json['account_ids'])) ? $json['account_ids'] : array();
                 $type  = $json['post_type'] ?? '—';
                 $text  = isset($json['text']) ? wp_strip_all_tags($json['text']) : '';
@@ -100,7 +100,7 @@ function ysp_links_from_result($body){
                 $scheduled = !empty($json['scheduled_time']) ? '<span class="ml-2 text-slate-600">• ' . esc_html__( 'scheduled:', 'yoapy-social-poster' ) . ' '.esc_html($json['scheduled_time']).'</span>' : '';
 
                 $netsHtml = '';
-                foreach ($nets as $n) $netsHtml .= ysp_net_chip($n).' ';
+                foreach ($nets as $n) $netsHtml .= yoapsopo_net_chip($n).' ';
 
                 $summary = '<div class="flex flex-wrap items-center gap-2">'.
                     '<span class="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-700">'.$type.'</span>'.
@@ -113,7 +113,7 @@ function ysp_links_from_result($body){
 
             if ($evt==='res_create_post_json'){
                 $title  = __( 'Send return', 'yoapy-social-poster' );
-                $body   = ysp_try_json($data['response_body'] ?? '');
+                $body   = yoapsopo_try_json($data['response_body'] ?? '');
                 $code   = intval($data['http_code'] ?? 0);
                 $taskId = is_array($body) && !empty($body['task_id']) ? $body['task_id'] : '—';
 
@@ -127,15 +127,15 @@ function ysp_links_from_result($body){
 
             if ($evt==='res_get_task_result'){
                 $title  = __( 'Task status', 'yoapy-social-poster' );
-                $body   = ysp_try_json($data['response_body'] ?? '');
+                $body   = yoapsopo_try_json($data['response_body'] ?? '');
                 $status = is_array($body) && !empty($body['status']) ? $body['status'] : '—';
 
-                $summary = ysp_status_chip($status);
-                $links = ysp_links_from_result($body);
+                $summary = yoapsopo_status_chip($status);
+                $links = yoapsopo_links_from_result($body);
                 if ($links) {
                     $summary .= '<div class="mt-2 flex flex-wrap gap-2">';
                     foreach ($links as $net=>$url) {
-                        $summary .= '<a class="inline-flex items-center gap-2 rounded-md px-2.5 py-1 text-xs text-white no-underline ysp-net ysp-net--'.esc_attr($net).'" target="_blank" rel="noopener" href="'.esc_url($url).'">'.ysp_net_svg($net).' <span>' . sprintf(
+                        $summary .= '<a class="inline-flex items-center gap-2 rounded-md px-2.5 py-1 text-xs text-white no-underline yoapsopo-net yoapsopo-net--'.esc_attr($net).'" target="_blank" rel="noopener" href="'.esc_url($url).'">'.yoapsopo_net_svg($net).' <span>' . sprintf(
                             /* translators: %s: social network name (e.g., Facebook, Instagram, YouTube, TikTok). */
                                 esc_html__( 'View on %s', 'yoapy-social-poster' ), esc_html($net) ) . '</span></a> ';
                     }
@@ -148,13 +148,13 @@ function ysp_links_from_result($body){
             if ($evt==='do_job_end'){
                 $title   = __( 'Job completion', 'yoapy-social-poster' );
                 $status  = $data['status'] ?? '—';
-                $summary = ysp_status_chip($status);
+                $summary = yoapsopo_status_chip($status);
                 $details = '<pre class="text-xs leading-5 whitespace-pre-wrap break-words">'.esc_html(json_encode($data, JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE)).'</pre>';
             }
 
             $items[] = array(
                 'idx'     => intval($r['_i']),
-                'when_br' => ysp_fmt_br($r['t']),
+                'when_br' => yoapsopo_fmt_br($r['t']),
                 'title'   => $title ?: $evt,
                 'summary' => $summary,
                 'details' => $details,
@@ -163,7 +163,7 @@ function ysp_links_from_result($body){
         endforeach;
 
         // allowed HTML para imprimir summary/details com ícones SVG
-        $ysp_allowed_html = array(
+        $yoapsopo_allowed_html = array(
             'div'  => array( 'class' => true ),
             'span' => array( 'class' => true ),
             'a'    => array( 'class' => true, 'href' => true, 'target' => true, 'rel' => true ),
@@ -190,20 +190,20 @@ function ysp_links_from_result($body){
                             <div class="mt-1 font-mono text-[13px] bg-slate-100 text-slate-700 inline-block rounded px-2 py-0.5"><?php echo esc_html($it['title']); ?></div>
                         </div>
                         <form method="post" class="shrink-0">
-                            <?php wp_nonce_field('ysp_delete_log'); ?>
+                            <?php wp_nonce_field('yoapsopo_delete_log'); ?>
                             <input type="hidden" name="line" value="<?php echo esc_attr( $it['idx'] ); ?>"/>
-                            <button class="inline-flex items-center gap-1 rounded-md px-2 py-1 text-rose-600 hover:bg-rose-50" name="ysp_delete_log" value="1" title="<?php esc_attr_e( 'Delete', 'yoapy-social-poster' ); ?>">
+                            <button class="inline-flex items-center gap-1 rounded-md px-2 py-1 text-rose-600 hover:bg-rose-50" name="yoapsopo_delete_log" value="1" title="<?php esc_attr_e( 'Delete', 'yoapy-social-poster' ); ?>">
                                 <span class="dashicons dashicons-trash"></span> <?php esc_html_e( 'Delete', 'yoapy-social-poster' ); ?>
                             </button>
                         </form>
                     </div>
 
                     <div class="mt-3 text-sm text-slate-700 space-y-2">
-                        <div class="ysp-summary"><?php echo wp_kses( $it['summary'], $ysp_allowed_html ); ?></div>
-                        <button type="button" class="ysp-toggle inline-flex items-center gap-1 text-sky-600 hover:text-sky-700">
+                        <div class="yoapsopo-summary"><?php echo wp_kses( $it['summary'], $yoapsopo_allowed_html ); ?></div>
+                        <button type="button" class="yoapsopo-toggle inline-flex items-center gap-1 text-sky-600 hover:text-sky-700">
                             <span class="dashicons dashicons-visibility"></span> <?php esc_html_e( 'view details', 'yoapy-social-poster' ); ?>
                         </button>
-                        <div class="ysp-details hidden mt-2 rounded-md bg-slate-50 p-3 overflow-x-auto"><?php echo wp_kses( $it['details'], $ysp_allowed_html ); ?></div>
+                        <div class="yoapsopo-details hidden mt-2 rounded-md bg-slate-50 p-3 overflow-x-auto"><?php echo wp_kses( $it['details'], $yoapsopo_allowed_html ); ?></div>
                     </div>
                 </li>
             <?php endforeach; ?>
@@ -212,7 +212,7 @@ function ysp_links_from_result($body){
         <!-- ===== DESKTOP/TABLET (tabela) ===== -->
         <div class="hidden md:block overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
             <div class="overflow-x-auto">
-                <table class="min-w-full text-sm" id="yspLogTable">
+                <table class="min-w-full text-sm" id="yoapsopoLogTable">
                     <thead class="bg-slate-50 sticky top-0 z-10">
                     <tr>
                         <th class="w-56 px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-600"><?php esc_html_e( 'When (local)', 'yoapy-social-poster' ); ?></th>
@@ -229,21 +229,21 @@ function ysp_links_from_result($body){
                                 <code class="inline-flex items-center rounded-lg bg-slate-100 px-2 py-1 text-[12px] text-slate-700"><?php echo esc_html($it['title']); ?></code>
                             </td>
                             <td class="align-top px-4 py-3">
-                                <div class="ysp-summary prose-sm max-w-none">
-                                    <?php echo wp_kses( $it['summary'], $ysp_allowed_html ); ?>
+                                <div class="yoapsopo-summary prose-sm max-w-none">
+                                    <?php echo wp_kses( $it['summary'], $yoapsopo_allowed_html ); ?>
                                 </div>
-                                <button type="button" class="ysp-toggle mt-2 inline-flex items-center gap-1 rounded-md px-2 py-1 text-sky-600 hover:bg-sky-50">
+                                <button type="button" class="yoapsopo-toggle mt-2 inline-flex items-center gap-1 rounded-md px-2 py-1 text-sky-600 hover:bg-sky-50">
                                     <span class="dashicons dashicons-visibility"></span> <?php esc_html_e( 'view details', 'yoapy-social-poster' ); ?>
                                 </button>
-                                <div class="ysp-details hidden mt-2 rounded-md bg-slate-50 p-3 overflow-x-auto">
-              <?php echo wp_kses( $it['details'], $ysp_allowed_html ); ?>
+                                <div class="yoapsopo-details hidden mt-2 rounded-md bg-slate-50 p-3 overflow-x-auto">
+              <?php echo wp_kses( $it['details'], $yoapsopo_allowed_html ); ?>
                                 </div>
                             </td>
                             <td class="align-top px-4 py-3">
                                 <form method="post">
-                                    <?php wp_nonce_field('ysp_delete_log'); ?>
+                                    <?php wp_nonce_field('yoapsopo_delete_log'); ?>
                                     <input type="hidden" name="line" value="<?php echo esc_attr( $it['idx'] ); ?>"/>
-                                    <button class="inline-flex items-center gap-1 rounded-md px-2 py-1 text-rose-600 hover:bg-rose-50" name="ysp_delete_log" value="1">
+                                    <button class="inline-flex items-center gap-1 rounded-md px-2 py-1 text-rose-600 hover:bg-rose-50" name="yoapsopo_delete_log" value="1">
                                         <span class="dashicons dashicons-trash"></span> <?php esc_html_e( 'Delete', 'yoapy-social-poster' ); ?>
                                     </button>
                                 </form>
@@ -268,7 +268,7 @@ function ysp_links_from_result($body){
                         ? '<span class="dashicons dashicons-hidden"></span> ' + <?php echo wp_json_encode( __( 'hide details', 'yoapy-social-poster' ) ); ?>
                         : '<span class="dashicons dashicons-visibility"></span> ' + <?php echo wp_json_encode( __( 'view details', 'yoapy-social-poster' ) ); ?>;
                 }
-                document.querySelectorAll('.ysp-toggle').forEach(function(b){ b.addEventListener('click', toggle); });
+                document.querySelectorAll('.yoapsopo-toggle').forEach(function(b){ b.addEventListener('click', toggle); });
             })();
         </script>
 
@@ -277,36 +277,36 @@ function ysp_links_from_result($body){
 
 <!-- estilos (usa Tailwind + complementos próprios) -->
 <style>
-    .ysp-badge{display:inline-block;padding:4px 10px;border-radius:999px;border:1px solid #e5e7eb;background:#f9fafb;margin-right:6px;font-size:12px}
-    .ysp-badge--muted{background:#f3f4f6;border-color:#e5e7eb;color:#374151}
-    .ysp-mini{opacity:.85}
-    .ysp-json{white-space:pre-wrap;word-break:break-word;background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:12px;margin:8px 0 0}
-    .ysp-chip{display:inline-flex;align-items:center;gap:6px;border-radius:999px;border:1px solid transparent;font-size:12px;padding:6px 10px}
-    .ysp-chip--success{background:#ecfdf5;border-color:#a7f3d0;color:#065f46}
-    .ysp-chip--warn{background:#fef3c7;border-color:#fde68a;color:#92400e}
-    .ysp-chip--info{background:#eff6ff;border-color:#bfdbfe;color:#1e40af}
-    .ysp-chip--muted{background:#f3f4f6;border-color:#e5e7eb;color:#374151}
-    .ysp-chip--error{background:#fee2e2;border-color:#fecaca;color:#991b1b}
-    .ysp-links .button-small{padding:2px 8px;border-radius:999px;height:auto;line-height:1.6}
-    .ysp-net{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;color:#fff;font-size:12px}
-    .ysp-net svg{display:inline-block}
-    .ysp-net--facebook{background:#1877F2}
-    .ysp-net--youtube{background:#ff0000}
-    .ysp-net--instagram{background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4)}
-    .ysp-net--tiktok{background:linear-gradient(45deg,#69C9D0,#000000,#EE1D52)}
+    .yoapsopo-badge{display:inline-block;padding:4px 10px;border-radius:999px;border:1px solid #e5e7eb;background:#f9fafb;margin-right:6px;font-size:12px}
+    .yoapsopo-badge--muted{background:#f3f4f6;border-color:#e5e7eb;color:#374151}
+    .yoapsopo-mini{opacity:.85}
+    .yoapsopo-json{white-space:pre-wrap;word-break:break-word;background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:12px;margin:8px 0 0}
+    .yoapsopo-chip{display:inline-flex;align-items:center;gap:6px;border-radius:999px;border:1px solid transparent;font-size:12px;padding:6px 10px}
+    .yoapsopo-chip--success{background:#ecfdf5;border-color:#a7f3d0;color:#065f46}
+    .yoapsopo-chip--warn{background:#fef3c7;border-color:#fde68a;color:#92400e}
+    .yoapsopo-chip--info{background:#eff6ff;border-color:#bfdbfe;color:#1e40af}
+    .yoapsopo-chip--muted{background:#f3f4f6;border-color:#e5e7eb;color:#374151}
+    .yoapsopo-chip--error{background:#fee2e2;border-color:#fecaca;color:#991b1b}
+    .yoapsopo-links .button-small{padding:2px 8px;border-radius:999px;height:auto;line-height:1.6}
+    .yoapsopo-net{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;color:#fff;font-size:12px}
+    .yoapsopo-net svg{display:inline-block}
+    .yoapsopo-net--facebook{background:#1877F2}
+    .yoapsopo-net--youtube{background:#ff0000}
+    .yoapsopo-net--instagram{background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4)}
+    .yoapsopo-net--tiktok{background:linear-gradient(45deg,#69C9D0,#000000,#EE1D52)}
     /* responsivo: cards quando tela estreita */
     @media (max-width: 782px){
-        #yspLogTable thead{display:none}
-        #yspLogTable tr{display:block;border:1px solid #e5e7eb;border-radius:12px;margin-bottom:12px;padding:10px}
-        #yspLogTable td{display:block;border:none;padding:6px 0}
-        #yspLogTable td code{white-space:normal}
+        #yoapsopoLogTable thead{display:none}
+        #yoapsopoLogTable tr{display:block;border:1px solid #e5e7eb;border-radius:12px;margin-bottom:12px;padding:10px}
+        #yoapsopoLogTable td{display:block;border:none;padding:6px 0}
+        #yoapsopoLogTable td code{white-space:normal}
     }
 </style>
 
 <script>
     // toggle detalhes
     document.addEventListener('click',function(e){
-        if(e.target && e.target.classList.contains('ysp-toggle')){
+        if(e.target && e.target.classList.contains('yoapsopo-toggle')){
             e.preventDefault();
             const d = e.target.nextElementSibling;
             if(d){ d.style.display = (d.style.display==='none'||!d.style.display) ? 'block':'none'; }

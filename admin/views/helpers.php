@@ -1,8 +1,8 @@
 <?php if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 // ===== Helpers & dados existentes =====================
-if ( ! function_exists('ysp_net_svg') ) {
-  function ysp_net_svg($net){
+if ( ! function_exists('yoapsopo_net_svg') ) {
+  function yoapsopo_net_svg($net){
     $svg = array(
       'facebook'=>'<svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7h-2.3V12h2.3V9.8c0-2.3 1.4-3.6 3.5-3.6 1 0 2 .2 2 .2v2.2h-1.1c-1.1 0-1.5.7-1.5 1.4V12h2.6l-.4 2.9h-2.2v7A10 10 0 0 0 22 12"/></svg>',
       'instagram'=>'<svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2z"/></svg>',
@@ -13,8 +13,8 @@ if ( ! function_exists('ysp_net_svg') ) {
   }
 }
 
-if ( ! function_exists('ysp_net_chip') ) {
-  function ysp_net_chip($net){
+if ( ! function_exists('yoapsopo_net_chip') ) {
+  function yoapsopo_net_chip($net){
     $map = array(
       'facebook'  => 'bg-[#1877F2]/10 text-[#1877F2] border-[#1877F2]/20',
       'instagram' => 'bg-gradient-to-r from-[#f58529]/10 via-[#dd2a7b]/10 to-[#515bd4]/10 text-[#af2a7b] border-pink-300/30',
@@ -23,12 +23,12 @@ if ( ! function_exists('ysp_net_chip') ) {
     );
     $label = ucfirst($net);
     $cls = isset($map[$net]) ? $map[$net] : 'bg-slate-100 text-slate-700 border-slate-200';
-    return '<span class="inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-medium '.$cls.'">'.ysp_net_svg($net).' <span>'.$label.'</span></span>';
+    return '<span class="inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-medium '.$cls.'">'.yoapsopo_net_svg($net).' <span>'.$label.'</span></span>';
   }
 }
 
-if ( ! function_exists('ysp_status_badge') ) {
-  function ysp_status_badge($status){
+if ( ! function_exists('yoapsopo_status_badge') ) {
+  function yoapsopo_status_badge($status){
     $s = strtolower((string)$status);
     $map = array(
       'complete'   => 'bg-emerald-50 text-emerald-700 ring-emerald-200',

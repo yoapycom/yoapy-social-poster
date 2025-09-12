@@ -2,14 +2,14 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Elementos do DOM
-        const device = document.getElementById('ysp_device');
-        const frame = document.getElementById('ysp_prev_frame');
-        const textInput = document.getElementById('ysp_text');
-        const imageInput = document.getElementById('ysp_image_url');
-        const videoInput = document.getElementById('ysp_video_url');
+        const device = document.getElementById('yoapsopo_device');
+        const frame = document.getElementById('yoapsopo_prev_frame');
+        const textInput = document.getElementById('yoapsopo_text');
+        const imageInput = document.getElementById('yoapsopo_image_url');
+        const videoInput = document.getElementById('yoapsopo_video_url');
         const typeSelect = document.querySelector('select[name="type"]');
-        const modePills = document.querySelectorAll('#ysp_prev_modes .ysp-pill');
-        const meta = document.getElementById('ysp_prev_meta');
+        const modePills = document.querySelectorAll('#yoapsopo_prev_modes .yoapsopo-pill');
+        const meta = document.getElementById('yoapsopo_prev_meta');
 
         const modes = {
             feed:    { aspect: '125%',      template: 'instagram', orientation: 'vertical' },
@@ -33,7 +33,7 @@
             document.querySelectorAll('[id$="_text_content"]').forEach(el => {
                 el.textContent = text;
             });
-            const charCounter = document.getElementById('ysp_char');
+            const charCounter = document.getElementById('yoapsopo_char');
             if (charCounter) charCounter.textContent = text.length;
         }
 
@@ -113,13 +113,13 @@
             currentMode = mode;
 
             device.setAttribute('data-mode', modes[mode].orientation);
-            frame.style.setProperty('--ysp-ar', modes[mode].aspect);
+            frame.style.setProperty('--yoapsopo-ar', modes[mode].aspect);
 
             document.querySelectorAll('.preview-container').forEach(c => c.classList.add('hidden'));
             const activeTemplate = document.getElementById(modes[mode].template + '_preview');
             if (activeTemplate) activeTemplate.classList.remove('hidden');
 
-            modePills.forEach(p => p.classList.toggle('ysp-pill--active', p.dataset.mode === mode));
+            modePills.forEach(p => p.classList.toggle('yoapsopo-pill--active', p.dataset.mode === mode));
 
             updatePreview();
         }

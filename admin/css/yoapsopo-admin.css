@@ -6,7 +6,7 @@
  */
 
 /* WordPress Notices Fix - Ensure readability and override all potential conflicts */
-.ysp-wrap .notice,
+.yoapsopo-wrap .notice,
 .wrap .notice,
 div.notice,
 .notice {
@@ -17,7 +17,7 @@ div.notice,
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
 }
 
-.ysp-wrap .notice p,
+.yoapsopo-wrap .notice p,
 .wrap .notice p,
 div.notice p,
 .notice p {
@@ -27,7 +27,7 @@ div.notice p,
     line-height: 1.5;
 }
 
-.ysp-wrap .notice a,
+.yoapsopo-wrap .notice a,
 .wrap .notice a,
 div.notice a,
 .notice a {
@@ -36,7 +36,7 @@ div.notice a,
     font-weight: 600;
 }
 
-.ysp-wrap .notice-success,
+.yoapsopo-wrap .notice-success,
 .wrap .notice-success,
 div.notice-success,
 .notice-success {
@@ -45,7 +45,7 @@ div.notice-success,
     color: #065f46 !important;
 }
 
-.ysp-wrap .notice-warning,
+.yoapsopo-wrap .notice-warning,
 .wrap .notice-warning,
 div.notice-warning,
 .notice-warning {
@@ -54,7 +54,7 @@ div.notice-warning,
     color: #92400e !important;
 }
 
-.ysp-wrap .notice-error,
+.yoapsopo-wrap .notice-error,
 .wrap .notice-error,
 div.notice-error,
 .notice-error {
@@ -63,7 +63,7 @@ div.notice-error,
     color: #991b1b !important;
 }
 
-.ysp-wrap .notice-info,
+.yoapsopo-wrap .notice-info,
 .wrap .notice-info,
 div.notice-info,
 .notice-info {
@@ -72,7 +72,7 @@ div.notice-info,
     color: #1e40af !important;
 }
 
-.ysp-wrap .is-dismissible .notice-dismiss,
+.yoapsopo-wrap .is-dismissible .notice-dismiss,
 .wrap .is-dismissible .notice-dismiss,
 div.is-dismissible .notice-dismiss,
 .is-dismissible .notice-dismiss {
@@ -82,7 +82,7 @@ div.is-dismissible .notice-dismiss,
     opacity: 0.7;
 }
 
-.ysp-wrap .is-dismissible .notice-dismiss:hover,
+.yoapsopo-wrap .is-dismissible .notice-dismiss:hover,
 .wrap .is-dismissible .notice-dismiss:hover,
 div.is-dismissible .notice-dismiss:hover,
 .is-dismissible .notice-dismiss:hover {
@@ -115,14 +115,14 @@ div.is-dismissible .notice-dismiss:hover,
 }
 
 /* Layout Components */
-.ysp-wrap .ysp-grid {
+.yoapsopo-wrap .yoapsopo-grid {
     display: grid;
     grid-template-columns: 1.05fr 1.45fr;
     gap: 20px;
     margin-top: 8px;
 }
 
-.ysp-card {
+.yoapsopo-card {
     background: #fff;
     border: 1px solid #e5e7eb;
     border-radius: 14px;
@@ -130,12 +130,12 @@ div.is-dismissible .notice-dismiss:hover,
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
-.ysp-card h2 {
+.yoapsopo-card h2 {
     margin: 0 0 10px;
     font-size: 18px;
 }
 
-.ysp-card-head {
+.yoapsopo-card-head {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -143,23 +143,23 @@ div.is-dismissible .notice-dismiss:hover,
 }
 
 /* Form Components */
-.ysp-field {
+.yoapsopo-field {
     margin-bottom: 12px;
 }
 
-.ysp-field.two {
+.yoapsopo-field.two {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
 }
 
-.ysp-field label {
+.yoapsopo-field label {
     display: block;
     font-weight: 600;
     margin-bottom: 6px;
 }
 
-.ysp-input {
+.yoapsopo-input {
     width: 100%;
     border: 1px solid #d1d5db;
     border-radius: 10px;
@@ -168,7 +168,7 @@ div.is-dismissible .notice-dismiss:hover,
 }
 
 /* Status & Badge Components */
-.ysp-chips .chip {
+.yoapsopo-chips .chip {
     display: inline-flex;
     align-items: center;
     border: 1px solid #d1d5db;
@@ -218,42 +218,42 @@ div.is-dismissible .notice-dismiss:hover,
 }
 
 /* Action Components */
-.ysp-actions {
+.yoapsopo-actions {
     display: flex;
     gap: 10px;
     align-items: center;
     margin-top: 12px;
 }
 
-.ysp-actions-cell .button {
+.yoapsopo-actions-cell .button {
     margin-right: 6px;
     margin-bottom: 6px;
 }
 
 /* Preview Components */
-.ysp-preview {
+.yoapsopo-preview {
     margin-top: 20px;
 }
 
-.ysp-preview-box {
+.yoapsopo-preview-box {
     border: 1px dashed #d1d5db;
     border-radius: 10px;
     padding: 12px;
     background: #fafafa;
 }
 
-.ysp-preview-box .text {
+.yoapsopo-preview-box .text {
     white-space: pre-wrap;
     margin-top: 8px;
 }
 
 /* Table Components */
-.ysp-table-wrap {
+.yoapsopo-table-wrap {
     overflow-x: auto;
 }
 
 /* CTA Components */
-.ysp-cta {
+.yoapsopo-cta {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -264,40 +264,40 @@ div.is-dismissible .notice-dismiss:hover,
     margin: 8px 0;
 }
 
-.ysp-cta .icon {
+.yoapsopo-cta .icon {
     font-size: 18px;
 }
 
 /* Responsive Design */
 @media (max-width: 782px) {
-    .ysp-wrap .ysp-grid {
+    .yoapsopo-wrap .yoapsopo-grid {
         grid-template-columns: 1fr;
         gap: 14px;
     }
 
-    .ysp-field.two {
+    .yoapsopo-field.two {
         grid-template-columns: 1fr;
     }
 
-    .ysp-actions-mobile {
+    .yoapsopo-actions-mobile {
         flex-direction: column;
         align-items: stretch;
     }
 
-    .ysp-actions-mobile .button {
+    .yoapsopo-actions-mobile .button {
         width: 100%;
     }
 
-    .ysp-card {
+    .yoapsopo-card {
         border-radius: 12px;
         padding: 12px;
     }
 
-    .ysp-table thead {
+    .yoapsopo-table thead {
         display: none;
     }
 
-    .ysp-table tr {
+    .yoapsopo-table tr {
         display: block;
         border: 1px solid #e5e7eb;
         border-radius: 12px;
@@ -305,43 +305,43 @@ div.is-dismissible .notice-dismiss:hover,
         margin-bottom: 10px;
     }
 
-    .ysp-table td {
+    .yoapsopo-table td {
         display: flex;
         justify-content: space-between;
         padding: 6px 8px;
         border: none;
     }
 
-    .ysp-table td:before {
+    .yoapsopo-table td:before {
         content: attr(data-label);
         font-weight: 600;
         color: #374151;
         margin-right: 10px;
     }
 
-    #ysp_tasks_tbody tr td:nth-child(1) {
+    #yoapsopo_tasks_tbody tr td:nth-child(1) {
         display: block;
     }
 
-    .ysp-actions-cell {
+    .yoapsopo-actions-cell {
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
     }
 
-    .ysp-actions-cell .button {
+    .yoapsopo-actions-cell .button {
         flex: 1 0 32%;
     }
 }
 
 /* Garante que a pré-visualização não sobreponha os menus ou a barra de admin */
-.ysp-wrap .ysp-device {
+.yoapsopo-wrap .yoapsopo-device {
     position: relative;
     z-index: 900; /* Um valor alto, mas inferior ao do menu do WP */
 }
 
 /* Garante que o menu de pré-visualização fique acima da pré-visualização do dispositivo */
-.ysp-wrap #ysp_prev_modes {
+.yoapsopo-wrap #yoapsopo_prev_modes {
     position: relative;
     z-index: 950; /* Um valor maior que o do dispositivo, para que fique na frente */
     background-color: #fff; /* Adiciona um fundo para evitar transparência */
@@ -351,12 +351,12 @@ div.is-dismissible .notice-dismiss:hover,
 }
 
 /* Ajuste para o contêiner principal do planner se necessário */
-.ysp-wrap {
+.yoapsopo-wrap {
     position: relative;
     z-index: 1;
 }
 
 /* Prevenção de conflitos com a barra de admin do WordPress */
-body.admin-bar .ysp-wrap .ysp-device.sticky {
+body.admin-bar .yoapsopo-wrap .yoapsopo-device.sticky {
     top: 32px; /* Ajusta a posição se a pré-visualização for fixa */
 }

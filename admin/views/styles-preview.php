@@ -3,7 +3,7 @@
     /* ================== ESTRUTURA DO PREVIEW ================== */
 
     /* Container do "Celular" (Device) */
-    .ysp-device {
+    .yoapsopo-device {
         position: relative;
         background: #111;
         border: 1px solid #444;
@@ -16,22 +16,22 @@
     }
 
     /* Orientação do Celular (Controlado por data-mode via JS) */
-    .ysp-device[data-mode="youtube"] {
+    .yoapsopo-device[data-mode="youtube"] {
         max-width: 640px; /* Largura para modo horizontal */
     }
 
     /* A "Tela" do Celular */
-    .ysp-ar {
+    .yoapsopo-ar {
         position: relative;
         width: 100%;
         height: 0;
-        padding-top: var(--ysp-ar, 177.77%); /* Proporção padrão 9:16 */
+        padding-top: var(--yoapsopo-ar, 177.77%); /* Proporção padrão 9:16 */
         background: #000;
         border-radius: 28px;
         overflow: hidden;
     }
 
-    .ysp-ar-obj {
+    .yoapsopo-ar-obj {
         position: absolute;
         top: 0;
         left: 0;
@@ -61,7 +61,7 @@
 
 
     /* ================== BOTÕES DE MODO (PILLS) ================== */
-    .ysp-pill {
+    .yoapsopo-pill {
         display: inline-flex;
         align-items: center;
         gap: 6px;
@@ -76,13 +76,13 @@
         cursor: pointer;
     }
 
-    .ysp-pill:hover {
+    .yoapsopo-pill:hover {
         border-color: #38bdf8;
         background: #f0f9ff;
         color: #0369a1;
     }
 
-    .ysp-pill.ysp-pill--active {
+    .yoapsopo-pill.yoapsopo-pill--active {
         background: #0ea5e9;
         color: #fff;
         border-color: #0ea5e9;

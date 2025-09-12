@@ -6,16 +6,16 @@
     document.addEventListener('DOMContentLoaded', function() {
         // Garante que a biblioteca de mídia do WordPress foi carregada
         if (typeof wp === 'undefined' || typeof wp.media === 'undefined') {
-            console.error('YSP: WordPress media library not loaded.');
+            console.error('YOAPSOPO: WordPress media library not loaded.');
             return;
         }
 
         // Usaremos uma única instância do seletor de mídia para melhor performance
         let mediaFrame;
 
-        // Usa delegação de evento para ouvir cliques em qualquer botão .ysp-pick
+        // Usa delegação de evento para ouvir cliques em qualquer botão .yoapsopo-pick
         document.body.addEventListener('click', function(e) {
-            const button = e.target.closest('.ysp-pick');
+            const button = e.target.closest('.yoapsopo-pick');
             if (!button) {
                 return;
             }
@@ -25,7 +25,7 @@
             const targetSelector = button.dataset.target;
             const targetInput = document.querySelector(targetSelector);
             if (!targetInput) {
-                console.error('YSP Media Picker: Input de destino não encontrado para o seletor:', targetSelector);
+                console.error('YOAPSOPO Media Picker: Input de destino não encontrado para o seletor:', targetSelector);
                 return;
             }
 

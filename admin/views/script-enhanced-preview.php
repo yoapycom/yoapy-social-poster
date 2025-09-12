@@ -5,11 +5,11 @@
 <script>
     (function(){
         // DOM Elements
-        const previewDevice = document.getElementById('ysp_device');
-        const previewPills = document.querySelectorAll('#ysp_prev_modes .ysp-pill');
-        const textInput = document.getElementById('ysp_text');
-        const imageInput = document.getElementById('ysp_image_url');
-        const videoInput = document.getElementById('ysp_video_url');
+        const previewDevice = document.getElementById('yoapsopo_device');
+        const previewPills = document.querySelectorAll('#yoapsopo_prev_modes .yoapsopo-pill');
+        const textInput = document.getElementById('yoapsopo_text');
+        const imageInput = document.getElementById('yoapsopo_image_url');
+        const videoInput = document.getElementById('yoapsopo_video_url');
         const typeSelect = document.querySelector('select[name="type"]');
         const networkCheckboxes = document.querySelectorAll('input[name="networks[]"]');
 
@@ -31,7 +31,7 @@
         };
 
         // Get handles from meta element if available
-        const metaElement = document.getElementById('ysp_prev_meta');
+        const metaElement = document.getElementById('yoapsopo_prev_meta');
         if (metaElement) {
             handles.facebook = metaElement.dataset.facebook || handles.facebook;
             handles.instagram = metaElement.dataset.instagram || handles.instagram;
@@ -139,25 +139,25 @@
 
             // Update active pill
             for (let i = 0; i < previewPills.length; i++) {
-                previewPills[i].classList.toggle('ysp-pill--active', previewPills[i].dataset.mode === mode);
+                previewPills[i].classList.toggle('yoapsopo-pill--active', previewPills[i].dataset.mode === mode);
             }
 
             // Animate pill selection
-            const activePill = document.querySelector(`.ysp-pill[data-mode="${mode}"]`);
+            const activePill = document.querySelector(`.yoapsopo-pill[data-mode="${mode}"]`);
             if (activePill) {
                 activePill.style.transform = 'translateY(-2px) scale(1.05)';
                 setTimeout(() => {
-                    activePill.style.transform = activePill.classList.contains('ysp-pill--active') ? 'translateY(-1px)' : '';
+                    activePill.style.transform = activePill.classList.contains('yoapsopo-pill--active') ? 'translateY(-1px)' : '';
                 }, 200);
             }
 
             // Update device data-mode and aspect ratio with animation
             if (previewDevice) {
                 previewDevice.dataset.mode = mode;
-                const frame = document.getElementById('ysp_prev_frame');
+                const frame = document.getElementById('yoapsopo_prev_frame');
                 if (frame) {
                     frame.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-                    frame.style.setProperty('--ysp-ar', previewModes[mode].aspectRatio);
+                    frame.style.setProperty('--yoapsopo-ar', previewModes[mode].aspectRatio);
                 }
             }
 
@@ -349,7 +349,7 @@
             }
 
             // Update character counter
-            const charCounter = document.getElementById('ysp_char');
+            const charCounter = document.getElementById('yoapsopo_char');
             if (charCounter) {
                 charCounter.textContent = text.length;
             }
