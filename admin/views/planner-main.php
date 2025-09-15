@@ -275,12 +275,3 @@ $yoapsopo_handles = array(
 
 <!-- Meta para Upload e Scripts -->
 <div id="yoapsopo_media_meta" data-upload-url="<?php echo esc_url( admin_url('async-upload.php') ); ?>" data-media-nonce="<?php echo esc_attr( wp_create_nonce('media-form') ); ?>" class="hidden"></div>
-<?php
-include 'styles-preview.php';
-include 'styles-social-preview.php';
-include 'styles-animations.php';
-include 'styles-utilities.php';
-include 'script-preview.php';
-include 'script-media-upload.php';
-include 'script-dragdrop.php';
-?>
