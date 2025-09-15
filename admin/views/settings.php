@@ -289,9 +289,3 @@ $resolved = array(
         <?php settings_errors(); ?>
     </div>
 </div>
-
-<!-- Avisos do WP: garantir contraste e herança de cor -->
-<?php
-include 'styles-settings.php';
-include 'script-settings.php';
-?>

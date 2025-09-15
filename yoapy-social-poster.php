@@ -306,7 +306,7 @@ function yoapsopo_enqueue_common_admin_assets( $hook_suffix ) {
     $base_url = defined('YOAPSOPO_PLUGIN_URL') ? YOAPSOPO_PLUGIN_URL : plugin_dir_url( __FILE__ );
 
     $css_path = $base_dir . 'assets/css/admin.css';
-    $css_url  = $base_url . 'assets/css/admin.css';
+    $css_url  = $base_url . 'admin/css/yoapsopo-admin.css';
     $ver      = file_exists( $css_path ) ? filemtime( $css_path ) : ( defined('YOAPSOPO_VERSION') ? YOAPSOPO_VERSION : false );
 
     wp_enqueue_style( 'yoapsopo-admin', $css_url, array(), $ver );
