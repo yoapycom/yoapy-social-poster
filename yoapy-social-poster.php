@@ -265,9 +265,8 @@ function yoapsopo_upload_dir() {
 }
 
 
-// CSS comum do admin (Tailwind compilado) — carrega nas páginas do plugin e no editor de post
+// CSS/JS comuns do admin — carrega nas telas do plugin e no editor de post
 add_action( 'admin_enqueue_scripts', 'yoapsopo_enqueue_common_admin_assets' );
-
 function yoapsopo_enqueue_common_admin_assets( $hook_suffix ) {
     // Descobre a tela atual
     $screen = function_exists('get_current_screen') ? get_current_screen() : null;
@@ -275,7 +274,6 @@ function yoapsopo_enqueue_common_admin_assets( $hook_suffix ) {
     // Telas do plugin (menu principal + submenus)
     $is_plugin_screen = false;
     if ( $screen ) {
-        // Cobre variações de id/base (toplevel_page_*, *_page_*)
         $is_plugin_screen =
             ( false !== strpos( $screen->id,  'yoapsopo_planner'  ) ) ||
             ( false !== strpos( $screen->id,  'yoapsopo_settings' ) ) ||
@@ -288,29 +286,46 @@ function yoapsopo_enqueue_common_admin_assets( $hook_suffix ) {
     // Telas do editor de post onde o metabox aparece
     $is_post_editor = false;
     if ( $screen ) {
-        // Por padrão, aplicamos no post type "post". Amplie via filtro se usar CPT.
         $post_types = apply_filters( 'yoapsopo_tailwind_post_types', array( 'post' ) );
-
-        // No editor clássico e no Gutenberg, $screen->base costuma ser 'post'
         if ( 'post' === $screen->base && ! empty( $screen->post_type ) && in_array( $screen->post_type, $post_types, true ) ) {
             $is_post_editor = true;
         }
     }
 
+    // Carrega somente nas telas relevantes
     if ( ! $is_plugin_screen && ! $is_post_editor ) {
-        return; // não é tela do plugin nem editor suportado -> não carrega nada
+        return;
     }
 
-    // Caminhos do CSS compilado
     $base_dir = defined('YOAPSOPO_PLUGIN_DIR') ? YOAPSOPO_PLUGIN_DIR : plugin_dir_path( __FILE__ );
     $base_url = defined('YOAPSOPO_PLUGIN_URL') ? YOAPSOPO_PLUGIN_URL : plugin_dir_url( __FILE__ );
 
-    $css_path = $base_dir . 'assets/css/admin.css';
-    $css_url  = $base_url . 'admin/css/yoapsopo-admin.css';
-    $ver      = file_exists( $css_path ) ? filemtime( $css_path ) : ( defined('YOAPSOPO_VERSION') ? YOAPSOPO_VERSION : false );
+    // --- Tailwind CSS (admin/css/tailwind.min.css)
+    $tw_css_file = $base_dir . 'admin/css/tailwind.min.css';
+    $tw_css_url  = $base_url . 'admin/css/tailwind.min.css';
+    $tw_css_ver  = file_exists( $tw_css_file ) ? filemtime( $tw_css_file ) : YOAPSOPO_VERSION;
+    wp_enqueue_style( 'yoapsopo-tailwind', $tw_css_url, array(), $tw_css_ver );
 
-    wp_enqueue_style( 'yoapsopo-admin', $css_url, array(), $ver );
+    // --- Seu CSS principal (admin/css/yoapsopo-admin.css)
+    $admin_css_file = $base_dir . 'admin/css/yoapsopo-admin.css';
+    $admin_css_url  = $base_url . 'admin/css/yoapsopo-admin.css';
+    $admin_css_ver  = file_exists( $admin_css_file ) ? filemtime( $admin_css_file ) : YOAPSOPO_VERSION;
+    // Deixe o seu CSS depois do Tailwind para poder sobrescrever utilitários, se necessário
+    wp_enqueue_style( 'yoapsopo-admin', $admin_css_url, array( 'yoapsopo-tailwind' ), $admin_css_ver );
+
+    // --- Tailwind JS (admin/js/tailwind.min.js) — opcional
+    // Somente se você realmente precisa do runtime do Tailwind no admin.
+    $tw_js_file = $base_dir . 'admin/js/tailwind.min.js';
+    if ( file_exists( $tw_js_file ) ) {
+        $tw_js_url = $base_url . 'admin/js/tailwind.min.js';
+        $tw_js_ver = filemtime( $tw_js_file );
+        wp_enqueue_script( 'yoapsopo-tailwind-js', $tw_js_url, array(), $tw_js_ver, true );
+    }
+
+    // Se usar a biblioteca de mídia do WP nessas telas, garanta o enqueue
+    wp_enqueue_media();
 }
+
 
 
 
