@@ -1,0 +1,27 @@
+name: Deploy to WordPress.org
+on:
+  push:
+    tags:
+      - 'v*.*.*'   # ex.: v1.6.0
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # (opcional) build do plugin
+      - name: Build
+        run: |
+          php -v
+          composer install --no-dev --prefer-dist || true
+          npm ci || true
+          npm run build || true
+
+      - name: WordPress Plugin Deploy
+        uses: 10up/action-wordpress-plugin-deploy@stable
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SLUG: yoapy-social-poster
+          ASSETS_DIR: .wordpress-org
